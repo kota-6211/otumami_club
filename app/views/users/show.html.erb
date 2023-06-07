@@ -1,2 +1,4 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>hello</h1>
+<% if current_user %>
+ <%= link_to "登録情報詳細", user_mypage_path(current_user) %>
+<% end %>
