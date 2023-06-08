@@ -1,2 +1,44 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with(model: @user, local: true) do |f| %>
+      <ul>
+        <li>
+          <%= f.label :"ユーザーネーム" %></br>
+          <%= f.text_field :user_name %>
+        </li>
+        <li>
+          <%= f.label :"自己紹介" %></br>
+          <%= f.text_field :user_name %>
+        </li>
+        <li>
+          <%= f.label :"苗字" %></br>
+          <%= f.text_field :last_name %>
+        </li>
+        <li>
+          <%= f.label :"名前" %></br>
+          <%= f.text_field :first_name %>
+        </li>
+        <li>
+          <%= f.label :"みょうじ" %></br>
+          <%= f.text_field :last_name_kana %>
+        </li>
+        <li>
+          <%= f.label :"なまえ" %></br>
+          <%= f.text_field :first_name_kana %>
+        </li>
+        <li>
+          <%= f.label :"メールアドレス" %></br>
+          <%= f.email_field :email %>
+        </li>
+        <li>
+          <%= f.label :"電話番号" %></br>
+          <%= f.telephone_field :phone_number %>
+        </li>
+      </ul>
+        <%= f.submit "Update" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

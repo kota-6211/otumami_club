@@ -1,4 +1,14 @@
-<h1>hello</h1>
-<% if current_user %>
- <%= link_to "登録情報詳細", user_mypage_path(current_user) %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <%= @user.user_name %>
+      <%= @user.introduction %>
+
+      <% if current_user %>
+       <%= link_to "登録情報詳細", user_mypage_path(current_user) %>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
