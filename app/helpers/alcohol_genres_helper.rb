@@ -1,0 +1,2 @@
+module AlcoholGenresHelper
+end
