@@ -1,2 +1,35 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <table>
+        	<tbody>
+        		<tr>
+        			<th>プロフィール画像</th>
+        			<th>ユーザー名</th>
+        			<th>会員ステータス</th>
+        		</tr>
+        	</tbody>
+        </table>
+        <% @users.each do |users| %>
+          <table>
+            <tbody>
+          		<tr>
+          			<td><%= image_tag users.get_profile_image(100,100) %></td>
+          			<td><%= users.user_name%>
+          			      <% if users.admin == true %>
+          			        <%= "[管理者]" %>
+          			      <% end %>
+          			 </td>
+          			<% if users.is_deleted == true %>
+                  <td>退会済み</td>
+                <% else %>
+                  <td>有効</td>
+                <% end %>
+                <td><%= link_to "ユーザー詳細情報", user_path(users) %></td>
+          		</tr>
+          	</tbody>
+          </table>
+        <% end %>
+    </div>
+  </div>
+</div>

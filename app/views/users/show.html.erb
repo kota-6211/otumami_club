@@ -1,14 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= image_tag @user.get_profile_image(100,100) %>
-      <%= @user.user_name %>
-      <%= @user.introduction %>
-
-      <% if current_user %>
-       <%= link_to "登録情報詳細", user_mypage_path(current_user) %>
+      <%= @user.is_deleted %>
+      <%= image_tag @user.get_profile_image(100,100) %><br>
+      <%= @user.user_name %><br>
+      <%= @user.introduction %><br>
+      <% if @user.favorite_alcohol.present? %>
+          <%= "#" + @user.favorite_alcohol + "好き" %>
       <% end %>
-      
+
+      <div>
+        <% if current_user %>
+         <%= link_to "登録情報詳細", user_mypage_path(@user) %>
+        <% end %>
+      </div>
+
+
     </div>
   </div>
 </div>

@@ -4,35 +4,43 @@
       <%= form_with(model: @user, local: true) do |f| %>
       <ul>
         <li>
-          <%= f.label :"ユーザーネーム" %></br>
+          <%= f.label :"プロフィール画像" %><br>
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </li>
+        <li>
+          <%= f.label :"ユーザーネーム" %><br>
           <%= f.text_field :user_name %>
         </li>
         <li>
-          <%= f.label :"自己紹介" %></br>
-          <%= f.text_field :user_name %>
+          <%= f.label :"好きなお酒" %><br>
+          <%= f.text_field :favorite_alcohol %>
         </li>
         <li>
-          <%= f.label :"苗字" %></br>
+          <%= f.label :"自己紹介" %><br>
+          <%= f.text_area :introduction %>
+        </li>
+        <li>
+          <%= f.label :"苗字" %><br>
           <%= f.text_field :last_name %>
         </li>
         <li>
-          <%= f.label :"名前" %></br>
+          <%= f.label :"名前" %><br>
           <%= f.text_field :first_name %>
         </li>
         <li>
-          <%= f.label :"みょうじ" %></br>
+          <%= f.label :"みょうじ" %><br>
           <%= f.text_field :last_name_kana %>
         </li>
         <li>
-          <%= f.label :"なまえ" %></br>
+          <%= f.label :"なまえ" %><br>
           <%= f.text_field :first_name_kana %>
         </li>
         <li>
-          <%= f.label :"メールアドレス" %></br>
+          <%= f.label :"メールアドレス" %><br>
           <%= f.email_field :email %>
         </li>
         <li>
-          <%= f.label :"電話番号" %></br>
+          <%= f.label :"電話番号" %><br>
           <%= f.telephone_field :phone_number %>
         </li>
       </ul>

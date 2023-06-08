@@ -1,12 +1,45 @@
 <div class="container">
   <div class="row">
     <div class="col">
-
+      <div>
         <%= image_tag @user.get_profile_image(100,100) %>
-        <%= @user.user_name %>
-        <%= @user.introduction %>
-        <%= link_to "ユーザー情報編集", edit_user_path(current_user) %>
+        <h3><%= @user.user_name %>さん登録情報</h3>
 
+        <ul>
+          <li>
+            ユーザー名: <%= @user.user_name %>
+          </li>
+          <li>
+            お気に入りのお酒: <%= @user.favorite_alcohol %>
+          </li>
+          <li>
+            自己紹介: <%= @user.introduction %>
+          </li>
+          <li>
+            姓: <%= @user.last_name %>
+          </li>
+          <li>
+            名: <%= @user.first_name %>
+          </li>
+          <li>
+            姓（かな）: <%= @user.last_name_kana %>
+          </li>
+          <li>
+            名（かな）: <%= @user.first_name_kana %>
+          </li>
+          <li>
+            メールアドレス: <%= @user.email %>
+          </li>
+          <li>
+            電話番号: <%= @user.phone_number %>
+          </li>
+        </ul>
+      </div>
+        <%= link_to "登録情報編集", edit_user_path(current_user) %>
+
+        <% if current_user.admin == false %>
+          <%= link_to "アカウント削除", user_unsubscribe_path(current_user) %>
+        <% end %>
     </div>
   </div>
 </div>
