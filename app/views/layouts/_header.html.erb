@@ -1,28 +1,40 @@
-<headre>
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "トップページ", root_path %>
-    </li>
-    <% if current_user.admin == true %>
+<div class="header">
+  <div class="logo">
+    <%= link_to "おつまみ倶楽部", root_path, class: "link" %>
+  </div>
+  <div class="header-link">
+    <% if user_signed_in? %>
+      <% if current_user.admin == true %>
+        <li>
+          <%= link_to "管理者ページ", users_admin_top_path, class: "link" %>
+        </li>
+      <% end %>
       <li>
-        <%= link_to "管理者ページ", users_admin_top_path %>
+        <%= link_to "おつまみ一覧", root_path, class: "link" %>
+      </li>
+      <li>
+        <%= link_to "つまみメーカー", chats_path, class: "link" %>
+      </li>
+      <li>
+        <%= link_to "マイページ", user_path(current_user), class: "link" %>
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link" %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "つまみメーカー", chats_path, class: "link" %>
+      </li>
+      <li>
+        <%= link_to "おつまみ一覧", root_path, class: "link" %>
+      </li>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path, class: "link" %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path, class: "link" %>
       </li>
     <% end %>
-    <li>
-      <%= link_to "マイページ", user_path(current_user) %>
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "トップページ", root_path %>
-    </li>
-    <li>
-      <%= link_to "新規登録", new_user_registration_path %>
-    </li>
-    <li>
-      <%= link_to "ログイン", new_user_session_path %>
-    </li>
-  <% end %>
-</headre>
+  </div>
+  
+</div>

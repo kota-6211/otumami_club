@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+}
+header {
+  background-color: #ffc44eb5;
+}
+
+.header {
+  width: 70%;
+  padding: 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.header-link {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.link {
+  color: black;
+  margin-left: 15px;
+}

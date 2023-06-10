@@ -1,0 +1,10 @@
+<div class="question">
+  <%= form_with(url: chats_path, method: :get) do |f| %>
+    <%= f.text_field :question, size: 50 %>
+    <%= f.submit "質問する" %>
+  <% end %>
+</div>
+
+<div class="answer">
+  <%= @answer %>
+</div>
