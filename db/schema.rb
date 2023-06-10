@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_08_143016) do
+ActiveRecord::Schema.define(version: 2023_06_10_063444) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,7 +48,21 @@ ActiveRecord::Schema.define(version: 2023_06_08_143016) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "ingredient_id", null: false
     t.string "quantity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipe_tags", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -64,6 +78,14 @@ ActiveRecord::Schema.define(version: 2023_06_08_143016) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["alcohol_genre_id"], name: "index_recipes_on_alcohol_genre_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.string "step_number", null: false
+    t.string "discription", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|

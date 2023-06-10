@@ -1,0 +1,47 @@
+<div class="container">
+  <h2 class="mb-3"><%= @recipe.title %></h2>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <h6 class="font-weight-bold">よく合うお酒</h6>
+      <%= @recipe.alcohol_genre.name %>
+    </div>
+    <div class="col-md-6">
+      <h6 class="font-weight-bold">調理時間</h6>
+      <%= @recipe.cook_time %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <h6 class="font-weight-bold">おつまみポイント</h6>
+    <%= @recipe.point %>
+  </div>
+
+  <div class="mb-3">
+    <h6 class="font-weight-bold">内容</h6>
+    <%= simple_format(@recipe.body) %>
+  </div>
+
+
+  <div>
+    <h6 class="font-weight-bold">
+      タグ
+    </h6>
+    <% if @recipe.tags.count == 0 %>
+      タグはありません
+    <% else %>
+      <ul>
+        <% @recipe.tags.each do |tag| %>
+          <li><%= link_to tag.name, tag_path(tag) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="mt-5">
+    <% if current_user.id = @recipe.user_id %>
+      <%= link_to '削除', recipe_path(@recipe), method: :delete, class: 'text-danger mr-3', data: {confirm: '削除しますか？'} %>
+      <%= link_to '編集', edit_recipe_path(@recipe) %>
+    <% end %>
+  </div>
+</div>

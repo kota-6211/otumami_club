@@ -6,7 +6,7 @@ class AlcoholGenresController < ApplicationController
     @alcohol_genres = AlcoholGenre.all
     @alcohol_genre = AlcoholGenre.new
   end
-  
+
   def create
     @alcohol_genre = AlcoholGenre.new(alcohol_genre_params)
     if @alcohol_genre.save
@@ -26,15 +26,15 @@ class AlcoholGenresController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def update
   end
-  
+
   def destroy
   end
-  
+
   private
-  
+
   def alcohol_genre_params
     params.require(:alcohol_genre).permit(:name)
   end

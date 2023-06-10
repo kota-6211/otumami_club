@@ -1,0 +1,8 @@
+<div class="container">
+  <h2><%= @tag.name %></h2>
+  <ul>
+    <% @tag.recipes.each do |recipe| %>
+      <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+    <% end %>
+  </ul>
+</div>
