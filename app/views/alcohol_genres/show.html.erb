@@ -1,2 +1,11 @@
-<h1>AlcoholGenres#show</h1>
-<p>Find me in app/views/alcohol_genres/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="ccol">
+      <% @recipes.each do |recipes| %>
+        <%= link_to recipe_path(recipes) do %>
+          <%= recipes.title %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

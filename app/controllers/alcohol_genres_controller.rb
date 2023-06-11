@@ -19,6 +19,8 @@ class AlcoholGenresController < ApplicationController
   end
 
   def show
+    @alcohol_genre = AlcoholGenre.find(params[:id])
+    @recipes = @alcohol_genre.recipes
   end
 
   def edit

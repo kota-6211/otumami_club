@@ -1,3 +1,3 @@
 class AlcoholGenre < ApplicationRecord
-  has_many :reci
+  has_many :recipes
 end

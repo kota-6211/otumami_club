@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @answer.each do |answer| %>
+        <%= simple_format(answer.text) %>
+      <% end %>
+    </div>
+  </div>
+</div>

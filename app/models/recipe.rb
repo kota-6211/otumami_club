@@ -3,11 +3,32 @@ class Recipe < ApplicationRecord
 
   belongs_to :user
   belongs_to :alcohol_genre
-  has_many :steps
-  has_many :recipe_tags
+  has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :recipe_tags, dependent: :destroy
+  has_many :saved_recipes, dependent: :destroy
   has_many :tags, through: :recipe_tags
-  has_many :ingredients, through: :recipe_ingredients
-  has_many :recipe_ingredients
+  has_many :ingredients, dependent: :destroy
+  has_many :steps, dependent: :destroy
+  accepts_nested_attributes_for :ingredients, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+  
+  def saved_by?(user)
+    saved_recipes.exists?(user_id: user.id)
+  end
+  
+  def get_recipe_image(width,height)
+    unless recipe_image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image_otumami.jpg')
+      recipe_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    recipe_image.variant(resize_to_limit: [width, height]).processed
+  end
+
 
   def save_tags(tags)
 
@@ -45,6 +66,10 @@ class Recipe < ApplicationRecord
       self.tags << new_recipe_tag
     end
 
+  end
+  
+  def self.ransackable_attributes(auth_object = nil)
+    ["alcohol_genre_id", "body", "cook_time", "created_at", "id", "point", "title", "updated_at", "user_id"]
   end
 
 end

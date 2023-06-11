@@ -1,10 +1,16 @@
-<div class="question">
-  <%= form_with(url: chats_path, method: :get) do |f| %>
-    <%= f.text_field :question, size: 50 %>
-    <%= f.submit "質問する" %>
-  <% end %>
-</div>
-
-<div class="answer">
-  <%= @answer %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+        <%= form_with(url: chats_path, method: :get) do |f| %>
+          <%= f.text_field :question, size: 50 %>
+          <%= f.submit "質問する" %>
+        <% end %>
+      <div class="answer">
+        <%= simple_format(@answer) %>
+        <% if @answer.present? %>
+          <%= link_to "回答を保存", chats_path(text: @answer), method: :post %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

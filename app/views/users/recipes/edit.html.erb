@@ -3,6 +3,12 @@
 
   <%= form_with model: @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
     <div class="row">
+      <div class="col">
+        <%= f.label :recipe_image, "おつまみ写真" %><br>
+        <%= f.file_field :recipe_image, accept: "image/*" %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-8">
         <div class="form-group">
           <%= f.label :title, 'タイトル' %>

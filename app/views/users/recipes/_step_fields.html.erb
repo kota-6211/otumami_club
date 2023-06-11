@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <div class="field">
+    <%# link_to_add_associationのform_nameで指定した名前。(初期値 : f)  %>
+    <%= f.label :step_number, '順番' %>
+    <%= f.text_field :step_number %>
+  </div>
+  <div class="field">
+    <%= f.label :discription, '説明' %>
+    <%= f.text_field :discription %>
+  </div>
+  <div class="field">
+    <%= link_to_remove_association "材料を削除", f %>
+  </div>
+  <hr>
+</div>

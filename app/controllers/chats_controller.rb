@@ -5,10 +5,21 @@ class ChatsController < ApplicationController
         response = client.chat(
           parameters: {
               model: "gpt-3.5-turbo",
-              messages: [{ role: "user", content: "次の材料だけで作れるお酒に合う簡単なアレンジおつまみ一品を教えて#{params[:question]}" }],
+              messages: [{ role: "user", content: "次の材料だけで作れるお酒に合う簡単なアレンジおつまみ一品を教えて。#{params[:question]}" }],
           })
-
         @answer = response.dig("choices", 0, "message", "content")
     end
   end
+  
+  def create
+    @answer = Chat.new(text: params[:text])
+    @answer.user_id = current_user.id
+    @answer.save
+    redirect_to user_path(current_user)
+  end
+  
+  def show
+    @answer = Chat.all
+  end
+  
 end

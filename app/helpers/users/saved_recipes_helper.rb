@@ -1,0 +1,2 @@
+module Users::SavedRecipesHelper
+end
