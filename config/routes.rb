@@ -9,14 +9,19 @@ Rails.application.routes.draw do
     get :mypage
     get :unsubscribe
     patch :withdraw
+    get :saved_recipes
   end
 
   resources :alcohol_genres, only: [:index, :create, :show, :edit, :uodate, :destroy]
 
-  resources :chats, only: [:index]
+  resources :chats, only: [:index, :create, :show]
 
   scope module: :users do
-    resources :recipes
+    resources :recipes do
+          resources :comments, only: [:create, :destroy]
+          resource :favorites, only: [:create, :destroy]
+          resource :saved_recipes, only: [:create, :destroy]
+    end
     resources :tags, only: %w(index show)
   end
 

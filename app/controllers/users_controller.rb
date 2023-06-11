@@ -12,8 +12,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def saved_recipes
+    # @user = User.find_by(id: params[:id])
+    saved_recipes = SavedRecipe.where(user_id: current_user.id).pluck(:recipe_id)
+    @saved_recipes = Recipe.find(saved_recipes)
+  end
+
   def show
     @user = User.find_by(id: params[:id])
+    @recipes = Recipe.all
   end
 
   def edit

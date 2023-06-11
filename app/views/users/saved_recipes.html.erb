@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5>保存おつまみ一覧</h5>
+      <% @saved_recipes.each do |saved_recopes| %>
+        <%= link_to recipe_path(saved_recopes) do %>
+         <%= saved_recopes.title %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

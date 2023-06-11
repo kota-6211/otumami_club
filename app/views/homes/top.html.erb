@@ -1,2 +1,25 @@
-<h1 id="homes">Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="ccol">
+      <% @genre.each do |genre| %>
+        <%= link_to alcohol_genre_path(genre) do %>
+          <%= genre.name %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ccol">
+      <% @tags.each do |tags| %>
+        <%= link_to tags.name, tag_path(tags) %></li>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ccol">
+      <% @beer.each do |beer_recipe| %>
+        <%= link_to beer_recipe.title, recipe_path(beer_recipe) %></li>
+      <% end %>
+    </div>
+  </div>
+</div>
