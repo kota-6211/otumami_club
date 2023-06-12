@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="ccol">
+    <div class="col">
       <% @genre.each do |genre| %>
         <%= link_to alcohol_genre_path(genre) do %>
           <%= genre.name %>
@@ -8,15 +8,53 @@
       <% end %>
     </div>
   </div>
+  <div class="row main">
+    <div class="col-5">
+      <h3>おつまみ</h3>
+      <h2>倶楽部</h2>
+    </div>
+    <div class="col-7">
+      <p>家飲みをより創造的に楽しみ今まで以上の充実を。<br>
+          あなたのお酒に合うアレンジおつまみを見つけ、そして自分のアレンジレシピを共有し、新たなおつまみの可能性を探求しましょう。<br>
+          一人でも、家族や友人とでも、おつまみ倶楽部で新しい家飲みの楽しさを提供します。</p>
+    </div>  
+  </div>
   <div class="row">
-    <div class="ccol">
+    <div class="col">
+      <h3>Pick Up おつまみ</h3>
+      <div class="pickup-recipe w-75 m-auto d-flex justify-content-between">
+        <div class="recipe card text-dark h-100">
+          <h4><%= @recipe2.title %></h4>
+          <%= image_tag @recipe2.recipe_image, size: "200x200" %>
+          <p><%= @recipe2.body %></p>
+        </div>
+        <div class="recipe card text-dark h-100">
+          <h4><%= @recipe3.title %></h4>
+          <%= image_tag @recipe3.recipe_image, size: "200x200" %>
+          <p><%= @recipe3.body %></p>
+        </div>
+        <div class="recipe card text-dark h-100">
+          <h4><%= @recipe4.title %></h4>
+          <%= image_tag @recipe4.recipe_image, size: "200x200" %>
+          <p><%= @recipe4.body %></p>
+        </div>
+        <div class="recipe card text-dark h-100">
+          <h4><%= @recipe5.title %></h4>
+          <%= image_tag @recipe5.recipe_image, size: "200x200" %>
+          <p><%= @recipe5.body %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <% @tags.each do |tags| %>
         <%= link_to tags.name, tag_path(tags) %></li>
       <% end %>
     </div>
   </div>
   <div class="row">
-    <div class="ccol">
+    <div class="col">
       <% @beer.each do |beer_recipe| %>
         <%= link_to beer_recipe.title, recipe_path(beer_recipe) %></li>
       <% end %>

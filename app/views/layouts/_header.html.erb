@@ -1,40 +1,53 @@
-<div class="header">
-  <div class="logo">
-    <%= link_to "おつまみ倶楽部", root_path, class: "link" %>
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-center mt-4 mb-3">
+        <%= link_to root_path, class: "link" do %>
+          <%= image_tag 'logo.jpg', size: "200x100" %>
+        <% end %>
+    </div>
   </div>
-  <div class="header-link">
-    <% if user_signed_in? %>
-      <% if current_user.admin == true %>
-        <li>
-          <%= link_to "管理者ページ", users_admin_top_path, class: "link" %>
-        </li>
-      <% end %>
-      <li>
-        <%= link_to "おつまみ一覧", recipes_path, class: "link" %>
-      </li>
-      <li>
-        <%= link_to "つまみメーカー", chats_path, class: "link" %>
-      </li>
-      <li>
-        <%= link_to "マイページ", user_path(current_user), class: "link" %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link" %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "つまみメーカー", chats_path, class: "link" %>
-      </li>
-      <li>
-        <%= link_to "おつまみ一覧", recipes_path, class: "link" %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path, class: "link" %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path, class: "link" %>
-      </li>
-    <% end %>
+  <div class="row d-flex justify-content-center ">
+    <div class="col-8 d-flex justify-content-between mt-3">
+        <% if user_signed_in? %> 
+          <% if current_user.admin == true %>
+            <li>
+              <%= link_to "管理者ページ", users_admin_top_path, class: "link" %>
+            </li>
+          <% end %>
+            <li>
+              <%= link_to "おつまみ一覧", recipes_path, class: "link" %>
+            </li>
+            <li>
+              <%= link_to "合うお酒で探す", recipes_path, class: "link" %>
+            </li>
+            <li>
+              <%= link_to "つまみメーカー", chats_path, class: "link" %>
+            </li>
+            <li>
+              <%= link_to "マイページ", user_path(current_user), class: "link" %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link" %>
+            </li>
+        <% else %>
+          <li>
+            <%= link_to "つまみメーカー", chats_path, class: "link" %>
+          </li>
+          <li>
+            <%= link_to "おつまみ一覧", recipes_path, class: "link" %>
+          </li>
+          <li>
+            <%= link_to "合うお酒で探す", recipes_path, class: "link" %>
+          </li>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path, class: "link" %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path, class: "link" %>
+          </li>
+        <% end %>
+    </div>
   </div>
+  
 
 </div>
