@@ -56,10 +56,18 @@ class UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+  def search
+    @results = @q.result
+  end
 
   private
+  
     def user_params
       params.require(:user).permit(:user_name, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :phone_number, :introduction, :favorite_alcohol, :profile_image)
     end
-
+    
+    def set_q
+      @q = Recipe.ransack(params[:q])
+    end
 end

@@ -8,14 +8,27 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <%= stylesheet_link_tag 'custom' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'custom' %>
     
   </head>
 
   <body>
-    <header><%= render 'layouts/header' %></header>
-    <%= yield %>
+    <div class="layouts">
+      <div class="col mx-0 px-0">
+        <header class="header"><%= render 'layouts/header' %></header>
+      </div>
+      
+      
+      <div class="main">
+        <div class="container">
+          <div class="row">
+            <div class="col px-0">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
   </body>
 </html>

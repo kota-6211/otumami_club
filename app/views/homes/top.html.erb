@@ -1,63 +1,112 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <% @genre.each do |genre| %>
-        <%= link_to alcohol_genre_path(genre) do %>
-          <%= genre.name %>
+
+<div>
+  <div class="section-border1"></div>
+  
+  <div class="main-image d-flex justify-content-center p-5 mt-5 w-100">
+   <%= image_tag 'main-image.jpg', size: "1000x500"%>
+  </div>
+  
+  <div class="section-border"></div>
+
+  <div class="pickup d-flex flex-column mb-5">
+    <h3 class="text-top">Pick Upおつまみ</h3>
+      <div class="d-flex justify-content-between">
+        <div class="pickup-recipe">
+          <%= link_to recipe_path(@recipe2) do%>
+            <%= image_tag @recipe2.recipe_image, size: "200x200" %>
+            <h4><%= @recipe2.title %></h4>
+          <% end %>
+        </div>
+        <div class="pickup-recipe">
+          <%= link_to recipe_path(@recipe3) do%>
+            <%= image_tag @recipe3.recipe_image, size: "200x200" %>
+            <h4><%= @recipe3.title %></h4>
+          <% end %>
+        </div>
+        <div class="pickup-recipe">
+          <%= link_to recipe_path(@recipe4) do%>
+            <%= image_tag @recipe4.recipe_image, size: "200x200" %>
+            <h4><%= @recipe4.title %></h4>
+          <% end %>
+        </div>
+        <div class="pickup-recipe">
+          <%= link_to recipe_path(@recipe5) do%>
+            <%= image_tag @recipe5.recipe_image, size: "200x200" %>
+            <h4><%= @recipe5.title %></h4>
+          <% end %>
+        </div>
+      </div>
+  </div>
+    
+  <div class="section-border"></div>
+
+  <div class="tags mt-5 mb-5">
+    <h3 class="text-top">タグからおつまみを探す</h3>
+    <% @tags.each do |tags| %>
+      <%= link_to tags.name, tag_path(tags), class: "btn btn-outline-dark mt-3"%>
+    <% end %>
+  </div>
+  
+  <div class="section-border"></div>
+  <div class="beer_recipe d-flex flex-wrap mt-5">
+    <div class="box box1 d-flex justify-content-center">
+       <p><span class="beer">ビール</span><br>とつまむ</p>
+    </div>
+    
+     <% @beer.each do |beer_recipe| %>
+        <div class="box box2">
+          <%= link_to recipe_path(beer_recipe) do %>
+            <div class="box-image mt-2 mb-2"><%= image_tag beer_recipe.recipe_image, size: "200x200" %></div>
+            <div class="box-text mt-5"><%= beer_recipe.title %></div>
+          <% end %>
+        </div>
+    <% end %>
+    
+    <div class="box box1 d-flex justify-content-center">
+      <%= image_tag 'beer.jpg', size: "300x300"%>
+    </div>
+  </div>
+  
+  <div class="section-border"></div>
+
+  <div class="beer_recipe d-flex justify-content-center flex-wrap mt-5">
+    <div class="box box1 d-flex justify-content-center">
+       <%= image_tag 'wine.jpg', size: "300x300"%>
+    </div>
+     <% @wine.each do |wine_recipe| %>
+        <div class="box box2">
+          <%= link_to recipe_path(wine_recipe) do %>
+            <div class="box-image mt-2 mb-2"><%= image_tag wine_recipe.recipe_image, size: "200x200" %></div>
+            <div class="box-text mt-5"><%= wine_recipe.title %></div>
+          <% end %>
+        </div>
+    <% end %>
+    <div class="box box1 d-flex justify-content-center">
+      <p><span class="wine">ワイン</span><br>に合わせる</p>
+    </div>
+  </div>
+  
+  <div class="section-border"></div>
+  
+  <div class="favorite-ranking">
+    <h3 class="text-top">人気のおつまみ</h3>
+    <div class="">
+      <div class="pickup-recipe d-flex justify-content-between">
+        <% @recipe_favorites.each do |favorite_recipe| %>
+          <div>
+            <%= link_to recipe_path(favorite_recipe) do %>
+              <%= image_tag favorite_recipe.recipe_image, size: "200x200" %>
+              <h4><%= favorite_recipe.title %></h4>
+              <%= favorite_recipe.favorites.count %>♡
+            <% end %>
+          </div>
         <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row main">
-    <div class="col-5">
-      <h3>おつまみ</h3>
-      <h2>倶楽部</h2>
-    </div>
-    <div class="col-7">
-      <p>家飲みをより創造的に楽しみ今まで以上の充実を。<br>
-          あなたのお酒に合うアレンジおつまみを見つけ、そして自分のアレンジレシピを共有し、新たなおつまみの可能性を探求しましょう。<br>
-          一人でも、家族や友人とでも、おつまみ倶楽部で新しい家飲みの楽しさを提供します。</p>
-    </div>  
-  </div>
-  <div class="row">
-    <div class="col">
-      <h3>Pick Up おつまみ</h3>
-      <div class="pickup-recipe w-75 m-auto d-flex justify-content-between">
-        <div class="recipe card text-dark h-100">
-          <h4><%= @recipe2.title %></h4>
-          <%= image_tag @recipe2.recipe_image, size: "200x200" %>
-          <p><%= @recipe2.body %></p>
-        </div>
-        <div class="recipe card text-dark h-100">
-          <h4><%= @recipe3.title %></h4>
-          <%= image_tag @recipe3.recipe_image, size: "200x200" %>
-          <p><%= @recipe3.body %></p>
-        </div>
-        <div class="recipe card text-dark h-100">
-          <h4><%= @recipe4.title %></h4>
-          <%= image_tag @recipe4.recipe_image, size: "200x200" %>
-          <p><%= @recipe4.body %></p>
-        </div>
-        <div class="recipe card text-dark h-100">
-          <h4><%= @recipe5.title %></h4>
-          <%= image_tag @recipe5.recipe_image, size: "200x200" %>
-          <p><%= @recipe5.body %></p>
-        </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <% @tags.each do |tags| %>
-        <%= link_to tags.name, tag_path(tags) %></li>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <% @beer.each do |beer_recipe| %>
-        <%= link_to beer_recipe.title, recipe_path(beer_recipe) %></li>
-      <% end %>
-    </div>
-  </div>
+  
+  <footer class="footer mt-5">
+      <p>おつまみ倶楽部</p>
+  </footer>
+
 </div>
