@@ -18,12 +18,16 @@ Rails.application.routes.draw do
 
   scope module: :users do
     resources :recipes do
-          resources :comments, only: [:create, :destroy]
-          resource :favorites, only: [:create, :destroy]
-          resource :saved_recipes, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+      resource :saved_recipes, only: [:create, :destroy]
+         collection do
+            get 'search'
+          end
     end
     resources :tags, only: %w(index show)
   end
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

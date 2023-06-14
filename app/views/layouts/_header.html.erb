@@ -1,53 +1,64 @@
-<div class="container">
-  <div class="row">
-    <div class="col d-flex justify-content-center mt-4 mb-3">
-        <%= link_to root_path, class: "link" do %>
-          <%= image_tag 'logo.jpg', size: "200x100" %>
-        <% end %>
-    </div>
-  </div>
-  <div class="row d-flex justify-content-center ">
-    <div class="col-8 d-flex justify-content-between mt-3">
-        <% if user_signed_in? %> 
-          <% if current_user.admin == true %>
-            <li>
-              <%= link_to "管理者ページ", users_admin_top_path, class: "link" %>
-            </li>
-          <% end %>
-            <li>
-              <%= link_to "おつまみ一覧", recipes_path, class: "link" %>
-            </li>
-            <li>
-              <%= link_to "合うお酒で探す", recipes_path, class: "link" %>
-            </li>
-            <li>
-              <%= link_to "つまみメーカー", chats_path, class: "link" %>
-            </li>
-            <li>
-              <%= link_to "マイページ", user_path(current_user), class: "link" %>
-            </li>
-            <li>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link" %>
-            </li>
-        <% else %>
-          <li>
-            <%= link_to "つまみメーカー", chats_path, class: "link" %>
-          </li>
-          <li>
-            <%= link_to "おつまみ一覧", recipes_path, class: "link" %>
-          </li>
-          <li>
-            <%= link_to "合うお酒で探す", recipes_path, class: "link" %>
-          </li>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path, class: "link" %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path, class: "link" %>
-          </li>
-        <% end %>
-    </div>
-  </div>
-  
+<div id="t1" class="clock"></div>
 
+<div class="header-logo">
+    <%= link_to root_path, class: "link" do %>
+      <%= image_tag 'logo10.png', size: "252x190" %>
+    <% end %>
 </div>
+
+<div class="search">
+  <%= search_form_for @q, url: search_recipes_path do |f| %>
+    <div>
+      <%= f.label :title_cont, '〜おつまみを探す〜' , class: "search-text" %>
+    </div>
+    <div>
+      <%= f.search_field :title_cont, class: "search-form" %>
+      <%= f.submit '検索', class: "search-submit btn btn-outline-dark p-0 pl-1 pr-1" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="header-link mt-4">
+  <div class="mt-2">
+    <h4>メニュ〜</h4>
+  </div>
+  <% if user_signed_in? %>
+    <% if current_user.admin == true %>
+      <li>
+        <%= link_to "・管理者ページ", users_admin_top_path, class: "link  ml-3" %>
+      </li>
+    <% end %>
+      <li>
+        <%= link_to "・おつまみ一覧から探す", recipes_path, class: "link  ml-3" %>
+      </li>
+      <li>
+        <%= link_to "・合うお酒を選んで探す", recipes_path, class: "link  ml-3" %>
+      </li>
+      <li>
+        <%= link_to "・つまみメーカーに聞く", chats_path, class: "link  ml-3" %>
+      </li>
+      <li>
+        <%= link_to "・マイページ", user_path(current_user), class: "link  ml-3" %>
+      </li>
+      <li>
+        <%= link_to "・ログアウト", destroy_user_session_path, method: :delete, class: "link  ml-3" %>
+      </li>
+  <% else %>
+    <li>
+      <%= link_to "・つまみメーカーに聞く", chats_path, class: "link ml-3" %>
+    </li>
+    <li>
+      <%= link_to "・おつまみ一覧から探す", recipes_path, class: "link  ml-3" %>
+    </li>
+    <li>
+      <%= link_to "・合うお酒を選んで探す", recipes_path, class: "link  ml-3" %>
+    </li>
+    <li>
+      <%= link_to "・新規登録", new_user_registration_path, class: "link  ml-3" %>
+    </li>
+    <li>
+      <%= link_to "・ログイン", new_user_session_path, class: "link  ml-3" %>
+    </li>
+  <% end %>
+</div>
+

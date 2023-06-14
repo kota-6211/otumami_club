@@ -1,6 +1,5 @@
 class Users::RecipesController < ApplicationController
   before_action :find_recipe, only: %w[ edit update destroy]
-  
 
   def index
     @recipes = Recipe.all
@@ -41,6 +40,10 @@ class Users::RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def find_recipe
@@ -49,7 +52,7 @@ class Users::RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:alcohol_genre_id, :title, :body, :point, :cook_time, :recipe_image,
-    ingredients_attributes: [:id, :name, :quantiry, :_destroy], 
+    ingredients_attributes: [:id, :name, :quantiry, :_destroy],
     steps_attributes: [:id, :step_number, :discription, :_destroy])
     .merge(user_id: current_user.id)
   end
