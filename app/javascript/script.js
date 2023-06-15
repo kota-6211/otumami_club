@@ -7,5 +7,5 @@ setInterval(function() {
     let minutes = date.getMinutes();
     minutes = minutes < 10 ? '0'+minutes : minutes;
     let clock = document.getElementById("t1").innerHTML = ampm + " " + hours + ':' + minutes;
-    clock.style("color","red")
 }, 1000);
+

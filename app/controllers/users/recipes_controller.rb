@@ -3,6 +3,7 @@ class Users::RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @tags = Tag.order(created_at: :desc).limit(25)
   end
 
   def new
@@ -37,7 +38,7 @@ class Users::RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to recipes_path
+    redirect_to user_path(current_user)
   end
 
   def search
