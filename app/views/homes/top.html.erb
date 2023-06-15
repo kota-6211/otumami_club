@@ -13,25 +13,25 @@
       <div class="d-flex justify-content-between">
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe2) do%>
-            <%= image_tag @recipe2.recipe_image, size: "200x200" %>
+            <%= image_tag @recipe2.get_recipe_image(200,200) %>
             <h4><%= @recipe2.title %></h4>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe3) do%>
-            <%= image_tag @recipe3.recipe_image, size: "200x200" %>
+            <%= image_tag @recipe3.get_recipe_image(200,200) %>
             <h4><%= @recipe3.title %></h4>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe4) do%>
-            <%= image_tag @recipe4.recipe_image, size: "200x200" %>
+            <%= image_tag @recipe4.get_recipe_image(200,200) %>
             <h4><%= @recipe4.title %></h4>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe5) do%>
-            <%= image_tag @recipe5.recipe_image, size: "200x200" %>
+            <%= image_tag @recipe5.get_recipe_image(200,200) %>
             <h4><%= @recipe5.title %></h4>
           <% end %>
         </div>
@@ -41,7 +41,7 @@
   <div class="section-border"></div>
 
   <div class="tags mt-5 mb-5">
-    <h3 class="text-top">タグからおつまみを探す</h3>
+    <h3 class="text-top">タグで探す</h3>
     <% @tags.each do |tags| %>
       <%= link_to tags.name, tag_path(tags), class: "btn btn-outline-dark mt-3"%>
     <% end %>
@@ -56,7 +56,7 @@
      <% @beer.each do |beer_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(beer_recipe) do %>
-            <div class="box-image mt-2 mb-2"><%= image_tag beer_recipe.recipe_image, size: "200x200" %></div>
+            <div class="box-image mt-2 mb-2"><%= image_tag beer_recipe.get_recipe_image(200,200) %></div>
             <div class="box-text mt-5"><%= beer_recipe.title %></div>
           <% end %>
         </div>
@@ -95,7 +95,7 @@
         <% @recipe_favorites.each do |favorite_recipe| %>
           <div>
             <%= link_to recipe_path(favorite_recipe) do %>
-              <%= image_tag favorite_recipe.recipe_image, size: "200x200" %>
+              <%= image_tag favorite_recipe.get_recipe_image(200,200) %>
               <h4><%= favorite_recipe.title %></h4>
               <%= favorite_recipe.favorites.count %>♡
             <% end %>

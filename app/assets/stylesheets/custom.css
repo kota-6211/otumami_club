@@ -12,11 +12,23 @@
 }
 
 .text-top {
-    width: fit-content;
-    border-top: solid 2px #000000;
-    border-bottom: solid 2px #000000;
-    margin: 1rem 2rem;
-    padding: 1rem;
+  width: fit-content;
+  border-top: solid 2px #000000;
+  border-bottom: solid 2px #000000;
+  margin: 1rem 2rem;
+  padding: 1rem;
+}
+
+
+/*区切り線*/
+.section-border1 {
+  border: 1px black solid;
+  margin: 1% 0 ;
+}
+
+.section-border {
+  border: 1px black solid;
+  margin: 10% 0 ;
 }
 
 /*ヘッダー*/
@@ -65,9 +77,10 @@
 /*メイン*/
 .main {
   width: 75vw;
+  height: 100vw;
 }
 .main-image {
-  margin-bottom: 10%
+  margin-bottom: 10%;
 }
 .main-text {
   text-align: center;text-align: center;
@@ -95,18 +108,7 @@
   margin: 0 auto;
 }
 
-/*区切り線*/
-.section-border1 {
-  border: 1px black solid;
-  margin: 1% 0 ;
-}
-
-.section-border {
-  border: 1px black solid;
-  margin: 10% 0 ;
-}
-
-/*ビールレシピ*/
+/*ビールワインレシピ*/
 .beer_recipe {
   width: 65%;
   margin: 0 auto;
@@ -118,7 +120,7 @@
   text-align: center
 }
 .box1 {
-  border: 25px #6c757d47 solid;
+  border: 15px #6c757d47 solid;
   align-items: center;
 }
 .box2 {
@@ -130,7 +132,7 @@
 }
 
 .box-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
 }
 
@@ -145,8 +147,6 @@
 .wine {
   font-size: 6rem;
 }
-
-/*いいね順*/
 
 
 /*フッター*/
@@ -182,5 +182,116 @@
  /*ログイン*/
 .user-sign-in {
   width: 35%;
+  margin: 3rem auto;
+}
+
+/*おつまみ関連*/
+.index-top {
+  width:70%;
+  margin: 0 auto;
+}
+
+/*おつまみshowページ*/
+.recipe-show {
+  padding: 3rem;
+}
+.recipe-user-detail {
+  width: 25%;
+  height: fit-content;
+  border-top: 3px black solid;
+  border-bottom: 3px black solid;
+  padding-bottom: 2rem;
+}
+.recipe-user-profile {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.recipe-detail {
+  width: 75%;
+  padding: 0 5rem;
+}
+.recipe-detail-image, .recipe-detail-title {
+  text-align: center;
+}
+.recipe-saved {
+  text-align: end;
+}
+.comments {
+  width: 30%;
+}
+/*ユーザーページ*/
+.user-show {
+ padding: 3rem;
+}
+.user-detail {
+  width: 25%;
+  height: fit-content;
+  border-top: 3px black solid;
+  border-bottom: 3px black solid;
+  padding-bottom: 2rem;
+}
+.user-profile{
+  text-align: center;
+  margin: 2rem 0;
+}
+.user-name {
+  margin: 1rem 0;
+  font-size: 1.7rem;
+}
+.user-recipe {
+  width: 75%;
+  padding:0 2rem;
+}
+.detail-links {
+  text-align: center;
+}
+.detail-link {
+  color: black;
+  margin: 0.5rem 0;
+}
+.detail-link:hover {
+  color: black;
+}
+
+.user-recipe h3 {
+  text-align: center;
+  font-size: 2rem;
+}
+.user-recipes {
+  padding: 1rem 0;
+  margin: 5rem 3rem;
+  border-top: 2px #d4d4d4 solid;
+  border-bottom: 2px #d4d4d4 solid;
+}
+.user-recipes:hover {
+  color: black;
+}
+.user-recipe-image {
+  margin-left: 2rem;
+}
+.user-recipe-blok {
+  align-items:center;
+}
+.user-recipe-title {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/*マイページ*/
+.my-page {
+  width: 60%;
+  margin: 0 auto;
+}
+/*保存レシピ*/
+.user-saved-recipe {
+  width: 70%;
+  padding: 3rem;
+  margin: 0 auto;
+}
+/*おつまみメーカー*/
+.tumami_maker {
+  width: 80%;
   margin: 3rem auto;
 }
