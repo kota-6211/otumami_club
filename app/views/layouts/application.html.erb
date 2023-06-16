@@ -11,24 +11,28 @@
     <%= stylesheet_link_tag 'custom' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
     <div class="layouts">
-      <div class="col mx-0 px-0">
+      <div class="col mx-0 px-0 header-background">
         <header class="header"><%= render 'layouts/header' %></header>
       </div>
-      
-      
+
+
       <div class="main">
-        <div class="container">
+        <div class="container main-content">
           <div class="row">
             <div class="col px-0">
+              <%= render 'layouts/alcohol_genre' %>
               <%= yield %>
+              <div class="section-border2 mt-5"></div>
+              <%= render 'layouts/footer' %>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </body>
 </html>

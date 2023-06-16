@@ -1,5 +1,11 @@
 
 <div>
+  <% if user_signed_in? %>
+    <% if current_user.admin == true %>
+      <%= link_to "管理者ページ", users_admin_top_path, class: "link  ml-3" %>
+    <% end %>
+  <% end %>
+  
   <div class="section-border1"></div>
   
   <div class="main-image d-flex justify-content-center p-5 mt-5 w-100">
@@ -93,10 +99,10 @@
     <div class="">
       <div class="pickup-recipe d-flex justify-content-between">
         <% @recipe_favorites.each do |favorite_recipe| %>
-          <div>
+          <div class="pickup-recipe-content" >
             <%= link_to recipe_path(favorite_recipe) do %>
-              <%= image_tag favorite_recipe.get_recipe_image(200,200) %>
-              <h4><%= favorite_recipe.title %></h4>
+              <%= image_tag favorite_recipe.get_recipe_image(170,170) %>
+              <p><%= favorite_recipe.title %></p>
               <%= favorite_recipe.favorites.count %>♡
             <% end %>
           </div>
@@ -104,9 +110,4 @@
       </div>
     </div>
   </div>
-  
-  <footer class="footer mt-5">
-      <p>おつまみ倶楽部</p>
-  </footer>
-
 </div>
