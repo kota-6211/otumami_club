@@ -6,7 +6,7 @@
         <table class="table table-bordered new-table">
         	<tbody>
         	  <tr class="table-row">
-        			<th colspan="2" class="table-head"></th><%= image_tag @user.get_profile_image(100,100) %></th>
+        			<th colspan="2" class="table-head"></th><%= image_tag @user.get_profile_image(100,100), width: '20%', height: '20%' %></th>
         		</tr>
         		<tr class="table-row">
         			<th colspan="2" class="table-head"><%= "ユーザーネーム" %><br><%= @user.user_name %></th>

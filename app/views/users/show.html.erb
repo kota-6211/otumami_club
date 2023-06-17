@@ -6,7 +6,7 @@
       <div class="user-profile">
         <h2>P R O F I L E</h2>
         <h4>プロフィール</h4>
-        <div class="user-image mt-3 mb-3"><%= image_tag @user.get_profile_image(200,200) %></div>
+        <div class="user-image mt-3 mb-3"><%= image_tag @user.get_profile_image(200,200), width: '100%', height: '100%' %></div>
         <div class="user-name"><%= @user.user_name %></div>
         <div class="user-introduction"><%= @user.introduction %></div>
         <div>
@@ -41,7 +41,7 @@
          <div class="user-recipes">
            <%= link_to recipe_path(recipes) do%>
              <div class="user-recipe-blok d-flex"> 
-              <%= image_tag recipes.get_recipe_image(200,200) %>
+              <%= image_tag recipes.get_recipe_image(200,200), width: '80%', height: '80%' %>
               <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
              </div>
               <%= content_tag :div, recipes.title, class: "user-recipe-title" %>

@@ -59,3 +59,4 @@ gem "dotenv-rails"
 gem "ruby-openai"
 gem "cocoon"
 gem 'ransack'
+gem 'jquery-rails'

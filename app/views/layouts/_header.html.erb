@@ -4,7 +4,9 @@
 
   <div class="header-logo">
       <%= link_to root_path, class: "link" do %>
-        <%= image_tag 'logo10.png', size: "252x190" %>
+        <%= image_tag 'logo10.png', size: "252x190", class: "pc-" %>
+        <h3 class="phone-logo">おつまみ</h3>
+        <h1  class="phone-logo">倶楽部</h1>
       <% end %>
   </div>
 
@@ -12,6 +14,7 @@
     <%= search_form_for @q, url: search_recipes_path do |f| %>
       <div>
         <%= f.label :title_cont, '〜おつまみを探す〜' , class: "search-text" %>
+        <%= f.label :title_cont, 'おつまみ検索' , class: "search-text-phone" %>
       </div>
       <div>
         <%= f.search_field :title_cont, class: "search-form" %>
@@ -20,11 +23,12 @@
     <% end %>
   </div>
 
-  <div class="header-link mt-4">
-    <div class="mt-2">
+  <div class="header-link">
+    <div class="mt-2 menu">
       <h4>メニュ〜</h4>
     </div>
     <% if user_signed_in? %>
+      <div class="pc-page">
         <li>
           <%= link_to "・おつまみ一覧から探す", recipes_path, class: "link  ml-3" %>
         </li>
@@ -40,6 +44,24 @@
         <li>
           <%= link_to "・ログアウト", destroy_user_session_path, method: :delete, class: "link  ml-3" %>
         </li>
+      </div>
+      <ul class="phone-page">
+        <li>
+          <%= link_to "・おつまみ一覧", recipes_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・合うお酒で探す", recipes_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・つまみメーカー", chats_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・マイページ", user_path(current_user), class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・ログアウト", destroy_user_session_path, method: :delete, class: "link  ml-3" %>
+        </li>
+      </ul>
     <% else %>
       <li>
         <%= link_to "・つまみメーカーに聞く", chats_path, class: "link ml-3" %>

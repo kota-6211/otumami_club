@@ -8,7 +8,7 @@
       <h2>M A D E</h2>
       <h4>by</h4>
       <div class="user-image mt-3 mb-3">
-        <%= image_tag @recipe.user.get_profile_image(200,200) %>
+        <%= image_tag @recipe.user.get_profile_image(200,200), width: '100%', height: '100%' %>
       </div>
       <div class="user-name">
         <%= @recipe.user.user_name %>
@@ -27,7 +27,7 @@
   
   <div class="recipe-detail">
     <div class="recipe-detail-image mb-5">
-      <%= image_tag @recipe.get_recipe_image(400,400) %>
+      <%= image_tag @recipe.get_recipe_image(400,400), width: '80%', height: '80%' %>
     </div>
     
     <div  class="recipe-detail-title mt-5">
@@ -99,46 +99,9 @@
       <% end %>
     </div>
   
-    <div class="recipe-saved">
-      <!--ログインしているか-->
-      <% if user_signed_in? %>
-        <!--自分の投稿は表示しない-->
-        <% if @recipe.user != current_user %>
-          <% if @recipe.saved_by?(current_user) %>
-            <p>
-              <%= link_to "保存済み", recipe_saved_recipes_path(@recipe), method: :delete, class: "btn btn-secondary" %>
-            </p>
-            <% else %>
-            <p>
-              <%= link_to "保存する", recipe_saved_recipes_path(@recipe), method: :post, class: "btn btn-outline-secondary" %>
-            </p>
-          <% end %>
-        <% end %>
-      <% else %>
-        <p>
-          <%= "おつまみはログイン後に保存できます" %>
-          <%= link_to "ログイン", new_user_session_path %>
-        </p>
-      <% end %>
+    <div class="recipe-saved" id="saved_buttons_<%= @recipe.id %>">
+     <%= render "users/saved_recipes/saved", recipe: @recipe %>
     </div>
-    
-    <div class="mb-5">
-      
-      
-    </div>
-
-    <div class="recipe-steps d-flex mt-3">
-      <div class="w-50">
-        
-        
-      </div>
-      <div class="w-50">
-        
-        
-      </div>
-    </div>
-  
-
     
    <div class="recipe-tags mt-5">
       <h6 class="font-weight-bold">タグ</h6>
@@ -151,62 +114,21 @@
       <% end %>
     </div>
       
-     <div class="col-6">
-        <% if user_signed_in? %>
-          <% if @recipe.favorited_by?(current_user) %>
-            <p>
-              <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
-                ♥<%= @recipe.favorites.count %> いいね
-              <% end %>
-            </p>
-            <% else %>
-            <p>
-              <%= link_to recipe_favorites_path(@recipe), method: :post do %>
-                ♡<%= @recipe.favorites.count %> いいね
-              <% end %>
-            </p>
-          <% end %>
-        <% else %>
-          <%= "ログインしていいね・コメントを送ろう" %><br>
-          <%= link_to "ログイン", new_user_session_path %>
-        <% end %>
+     <div class="col-6" id="favorite_buttons_<%= @recipe.id %>">
+        <%= render "users/favorites/favorite", recipe: @recipe %>
       </div>
 
       <div>
         <div>
           <h3>コメント</h3>
           <div>
-            <% if user_signed_in? %>
-              <%= form_with model: [@recipe, @comment] do |f| %>
-                <%= f.text_area :comment, rows: '3', placeholder: "コメントをここに" %>
-                <%= f.submit "送信する" %>
-              <% end %>
-            <% end %>
+            <%= render "comments/comments_form", recipe: @recipe, comment: @comment %>
           </div>
         </div>
        
         
-        <div class="mt-3 mb-3">
-          <% @recipe.comments.each do |comment| %>
-            <div class="mt-5">
-              <div class="d-flex">
-                <%= image_tag comment.user.get_profile_image(100,100) %>
-                <p><%= comment.comment %></p>
-              </div>
-              <div class="font-weight-bold">
-                <%= comment.user.user_name %>
-              </div>
-              <div>
-                
-              </div>
-              <div>
-                <%= comment.created_at.strftime('%Y/%m/%d') %>
-                <% if comment.user === current_user %>
-                  <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
+        <div class="mt-3 mb-3" id="comments_buttons">
+          <%= render "comments/comments", recipe: @recipe %>
         </div>
       </div>
   </div>
