@@ -1,36 +1,40 @@
-<div class="user-sign-up">
-  <h2>新規登録</h2>
-    <%= form_with model: @user do |f| %>
-      <table class="table table-bordered new-table">
-      	<tbody>
-      	  <tr class="table-row">
-      			<th colspan="2" class="table-head"></th><%= f.label :"プロフィール画像" %><br><%= f.file_field :profile_image, accept: "image/*" %></th>
-      		</tr>
-      		<tr class="table-row">
-      			<th colspan="2" class="table-head"><%= f.label :"ユーザーネーム" %><br><%= f.text_field :user_name, autofocus: true %></th>
-      		</tr>
-      		<tr class="table-row">
-      			<th colspan="2" class="table-head"><%= f.label :"好きなお酒" %><br><%= f.text_field :favorite_alcohol %></th>
-      		</tr>
-      		<tr class="table-row">
-      			<th colspan="2" class="table-head"><%= f.label :"自己紹介" %><br><%= f.text_area :introduction %></th>
-      		</tr>
-      		<tr class="table-row">
-      			<th colspan="1" class="table-head"> <%= f.label :"姓" %><br><%= f.text_field :last_name, autofocus: true %></th>
-      			<th colspan="1" class="table-head"><%= f.label :"名" %> <br> <%= f.text_field :first_name, autofocus: true %></th>
-      		</tr>
-      		<tr class="table-row">
-      			<th colspan="1" class="table-head"><%= f.label :"せい" %><br> <%= f.text_field :last_name_kana, autofocus: true %></th>
-      			<th colspan="1" class="table-head"><%= f.label :"めい" %><br> <%= f.text_field :first_name_kana, autofocus: true %></th>
-      		</tr>
-      		<tr class="table-row">
-      			<th colspan="1" class="table-head"><%= f.label :"電話番号" %><br> <%= f.text_field :phone_number, autofocus: true %></th>
-      			<th colspan="1" class="table-head"><%= f.label :"メールアドレス" %><br> <%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-      		</tr>
-      	</tbody>
-      </table>
-      <div class="actions">
-          <%= f.submit "変更", class: "btn btn-outline-secondary new-submit mb-3" %>
-      </div>
-    <% end %>
+<div>
+  <div class="section-border1"></div>
+
+  <div class="user-sign-up">
+    <h2>登録情報編集</h2>
+      <%= form_with model: @user do |f| %>
+        <table class="table table-bordered new-table">
+        	<tbody>
+        	  <tr class="table-row">
+        			<th colspan="2" class="table-head"></th><%= f.label :"プロフィール画像" %><br><%= f.file_field :profile_image, accept: "image/*" %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= f.label :"ユーザーネーム" %><br><%= f.text_field :user_name, autofocus: true %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= f.label :"好きなお酒" %><br><%= f.text_field :favorite_alcohol %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= f.label :"自己紹介" %><br><%= f.text_area :introduction %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"> <%= f.label :"姓" %><br><%= f.text_field :last_name, autofocus: true %></th>
+        			<th colspan="1" class="table-head"><%= f.label :"名" %> <br> <%= f.text_field :first_name, autofocus: true %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"><%= f.label :"せい" %><br> <%= f.text_field :last_name_kana, autofocus: true %></th>
+        			<th colspan="1" class="table-head"><%= f.label :"めい" %><br> <%= f.text_field :first_name_kana, autofocus: true %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"><%= f.label :"電話番号" %><br> <%= f.text_field :phone_number, autofocus: true %></th>
+        			<th colspan="1" class="table-head"><%= f.label :"メールアドレス" %><br> <%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+        		</tr>
+        	</tbody>
+        </table>
+        <div class="actions">
+            <%= f.submit "変更", class: "btn btn-outline-secondary new-submit mb-3" %>
+        </div>
+      <% end %>
+  </div>
 </div>

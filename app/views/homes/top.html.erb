@@ -1,9 +1,15 @@
 
 <div>
+  <% if user_signed_in? %>
+    <% if current_user.admin == true %>
+      <%= link_to "管理者ページ", users_admin_top_path, class: "link  ml-3" %>
+    <% end %>
+  <% end %>
+  
   <div class="section-border1"></div>
   
   <div class="main-image d-flex justify-content-center p-5 mt-5 w-100">
-   <%= image_tag 'main-image.jpg', size: "1000x500"%>
+   <%= image_tag 'main-image.jpg', width: '100%', height: '100%' %>
   </div>
   
   <div class="section-border"></div>
@@ -13,26 +19,26 @@
       <div class="d-flex justify-content-between">
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe2) do%>
-            <%= image_tag @recipe2.get_recipe_image(200,200) %>
-            <h4><%= @recipe2.title %></h4>
+            <%= image_tag @recipe2.get_recipe_image(200,200), width: '80%', height: '80%' %>
+            <h4 class="pickup-title"><%= @recipe2.title %></h4>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe3) do%>
-            <%= image_tag @recipe3.get_recipe_image(200,200) %>
-            <h4><%= @recipe3.title %></h4>
+            <%= image_tag @recipe3.get_recipe_image(200,200), width: '80%', height: '80%' %>
+            <h4 class="pickup-title"><%= @recipe3.title %></h4>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe4) do%>
-            <%= image_tag @recipe4.get_recipe_image(200,200) %>
-            <h4><%= @recipe4.title %></h4>
+            <%= image_tag @recipe4.get_recipe_image(200,200),  width: '80%', height: '80%' %>
+            <h4 class="pickup-title"><%= @recipe4.title %></h4>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe5) do%>
-            <%= image_tag @recipe5.get_recipe_image(200,200) %>
-            <h4><%= @recipe5.title %></h4>
+            <%= image_tag @recipe5.get_recipe_image(200,200),  width: '80%', height: '80%' %>
+            <h4 class="pickup-title"><%= @recipe5.title %></h4>
           <% end %>
         </div>
       </div>
@@ -48,7 +54,7 @@
   </div>
   
   <div class="section-border"></div>
-  <div class="beer_recipe d-flex flex-wrap mt-5">
+  <div class="beer_recipe d-flex justify-content-center flex-wrap mt-5">
     <div class="box box1 d-flex justify-content-center">
        <p><span class="beer">ビール</span><br>とつまむ</p>
     </div>
@@ -56,14 +62,14 @@
      <% @beer.each do |beer_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(beer_recipe) do %>
-            <div class="box-image mt-2 mb-2"><%= image_tag beer_recipe.get_recipe_image(200,200) %></div>
-            <div class="box-text mt-5"><%= beer_recipe.title %></div>
+            <div class="box-image mt-2 mb-2"><%= image_tag beer_recipe.get_recipe_image(200,200), width: '60%', height: '60%' %></div>
+            <div class="box-text mt-2"><%= beer_recipe.title %></div>
           <% end %>
         </div>
     <% end %>
     
     <div class="box box1 d-flex justify-content-center">
-      <%= image_tag 'beer.jpg', size: "300x300"%>
+      <%= image_tag 'beer.jpg', width: '100%', height: '100%' %>
     </div>
   </div>
   
@@ -71,13 +77,13 @@
 
   <div class="beer_recipe d-flex justify-content-center flex-wrap mt-5">
     <div class="box box1 d-flex justify-content-center">
-       <%= image_tag 'wine.jpg', size: "300x300"%>
+       <%= image_tag 'wine.jpg', width: '100%', height: '100%' %>
     </div>
      <% @wine.each do |wine_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(wine_recipe) do %>
-            <div class="box-image mt-2 mb-2"><%= image_tag wine_recipe.recipe_image, size: "200x200" %></div>
-            <div class="box-text mt-5"><%= wine_recipe.title %></div>
+            <div class="box-image mt-2 mb-2"><%= image_tag wine_recipe.recipe_image, width: '60%', height: '60%' %></div>
+            <div class="box-text mt-2"><%= wine_recipe.title %></div>
           <% end %>
         </div>
     <% end %>
@@ -93,20 +99,15 @@
     <div class="">
       <div class="pickup-recipe d-flex justify-content-between">
         <% @recipe_favorites.each do |favorite_recipe| %>
-          <div>
+          <div class="pickup-recipe-content" >
             <%= link_to recipe_path(favorite_recipe) do %>
-              <%= image_tag favorite_recipe.get_recipe_image(200,200) %>
-              <h4><%= favorite_recipe.title %></h4>
-              <%= favorite_recipe.favorites.count %>♡
+              <%= image_tag favorite_recipe.get_recipe_image(170,170), width: '70%', height: '70%' %>
+              <p class="favorite-text"><%= favorite_recipe.title %></p>
+              <span class="text-dark"><%= "#{favorite_recipe.favorites.count}" + "♡" %></span>
             <% end %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  
-  <footer class="footer mt-5">
-      <p>おつまみ倶楽部</p>
-  </footer>
-
 </div>

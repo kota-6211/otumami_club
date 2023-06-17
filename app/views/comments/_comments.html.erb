@@ -1,0 +1,20 @@
+<% recipe.comments.each do |comment| %>
+  <div class="mt-5">
+    <div class="d-flex">
+      <%= image_tag comment.user.get_profile_image(100,100), width: '20%', height: '20%' %>
+      <p><%= comment.comment %></p>
+    </div>
+    <div class="font-weight-bold">
+      <%= comment.user.user_name %>
+    </div>
+    <div>
+      
+    </div>
+    <div>
+      <%= comment.created_at.strftime('%Y/%m/%d') %>
+      <% if comment.user === current_user %>
+        <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

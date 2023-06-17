@@ -1,51 +1,54 @@
-<div class="user-show d-flex">
-  <div class="user-detail">
-    <div class="user-profile">
-      <h2>P R O F I L E</h2>
-      <h4>プロフィール</h4>
-      <div class="user-image mt-3 mb-3"><%= image_tag @user.get_profile_image(200,200) %></div>
-      <div class="user-name"><%= @user.user_name %></div>
-      <div class="user-introduction"><%= @user.introduction %></div>
-      <div>
-        <% if @user.favorite_alcohol.present? %>
-          <%= "#" + @user.favorite_alcohol + "好き" %>
+<div>
+  <div class="section-border1"></div>
+  
+  <div class="user-show d-flex">
+    <div class="user-detail">
+      <div class="user-profile">
+        <h2>P R O F I L E</h2>
+        <h4>プロフィール</h4>
+        <div class="user-image mt-3 mb-3"><%= image_tag @user.get_profile_image(200,200), width: '100%', height: '100%' %></div>
+        <div class="user-name"><%= @user.user_name %></div>
+        <div class="user-introduction"><%= @user.introduction %></div>
+        <div>
+          <% if @user.favorite_alcohol.present? %>
+            <%= "#" + @user.favorite_alcohol + "好き" %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="detail-links">
+        <% if current_user %>
+          <div class="detail-link">
+            <%= link_to "・登録情報詳細・", user_mypage_path(@user), class: "detail-link" %>
+          </div>
+          <div class="detail-link">
+            <%= link_to "・おつまみ投稿・", new_recipe_path, class: "detail-link" %>
+          </div>
+          <div class="detail-link">
+            <%= link_to "・保存した投稿・", user_saved_recipes_path(@user), class: "detail-link" %>
+          </div>
+          <div class="detail-link">
+            <%= link_to "・保存したAI・", chat_path(@user), class: "detail-link" %>
+          </div>
         <% end %>
       </div>
     </div>
+  
     
-    <div class="detail-links">
-      <% if current_user %>
-        <div class="detail-link">
-          <%= link_to "・登録情報詳細・", user_mypage_path(@user), class: "detail-link" %>
-        </div>
-        <div class="detail-link">
-          <%= link_to "・おつまみ投稿・", new_recipe_path, class: "detail-link" %>
-        </div>
-        <div class="detail-link">
-          <%= link_to "・保存した投稿・", user_saved_recipes_path(@user), class: "detail-link" %>
-        </div>
-        <div class="detail-link">
-          <%= link_to "・保存したAI・", chat_path(@user), class: "detail-link" %>
-        </div>
-      <% end %>
+    <div class="user-recipe">
+     <h3>My おつまみ</h3>
+       <% @user.recipes.each do |recipes| %>
+         <div class="user-recipes">
+           <%= link_to recipe_path(recipes) do%>
+             <div class="user-recipe-blok d-flex"> 
+              <%= image_tag recipes.get_recipe_image(200,200), width: '80%', height: '80%' %>
+              <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
+             </div>
+              <%= content_tag :div, recipes.title, class: "user-recipe-title" %>
+              <%= content_tag :div, recipes.body, class: "user-recipe-body" %>
+           <% end %>
+          </div>
+       <% end %>
     </div>
   </div>
-
-  
-  <div class="user-recipe">
-   <h3>My おつまみ</h3>
-     <% @user.recipes.each do |recipes| %>
-       <div class="user-recipes">
-         <%= link_to recipe_path(recipes) do%>
-           <div class="user-recipe-blok d-flex"> 
-            <%= image_tag recipes.get_recipe_image(200,200) %>
-            <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
-           </div>
-            <%= content_tag :div, recipes.title, class: "user-recipe-title" %>
-            <%= content_tag :div, recipes.body, class: "user-recipe-body" %>
-         <% end %>
-        </div>
-     <% end %>
-  </div>
-
 </div>

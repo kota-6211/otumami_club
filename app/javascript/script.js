@@ -1,3 +1,4 @@
+// ヘッダーの時計
 setInterval(function() {
     let date = new Date();
     let hours = date.getHours();
@@ -8,4 +9,5 @@ setInterval(function() {
     minutes = minutes < 10 ? '0'+minutes : minutes;
     let clock = document.getElementById("t1").innerHTML = ampm + " " + hours + ':' + minutes;
 }, 1000);
+
 

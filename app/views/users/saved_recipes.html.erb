@@ -1,15 +1,19 @@
-<div class="user-saved-recipe">
- <h3>保存した おつまみ</h3>
-   <% @saved_recipes.each do |recipes| %>
-     <div class="user-recipes">
-       <%= link_to recipe_path(recipes) do%>
-         <div class="user-recipe-blok d-flex"> 
-          <%= image_tag recipes.get_recipe_image(200,200) %>
-          <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
-         </div>
-          <%= content_tag :div, recipes.title, class: "user-recipe-title" %>
-          <%= content_tag :div, recipes.body, class: "user-recipe-body" %>
-       <% end %>
-      </div>
-   <% end %>
+<div>
+ <div class="section-border1"></div>
+
+ <div class="user-saved-recipe">
+  <h3>保存した おつまみ</h3>
+    <% @saved_recipes.each do |recipes| %>
+      <div class="user-recipes">
+        <%= link_to recipe_path(recipes) do%>
+          <div class="user-recipe-blok d-flex"> 
+           <%= image_tag recipes.get_recipe_image(200,200) %>
+           <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
+          </div>
+           <%= content_tag :div, recipes.title, class: "user-recipe-title" %>
+           <%= content_tag :div, recipes.body, class: "user-recipe-body" %>
+        <% end %>
+       </div>
+    <% end %>
+ </div>
 </div>
