@@ -132,12 +132,19 @@
   background-color: #f9e0c173;
   text-align: center;
 }
+.pickup-title {
+  font-size: 1.5vw;
+}
 .pickup-recipe-content {
   width: 20%
 }
 .tags {
   width: 70%;
   margin: 0 auto;
+}
+.favorite-text {
+  font-size: 1.2vw;
+  margin: 0;
 }
 /*ビールワインレシピ*/
 .beer_recipe {
@@ -163,7 +170,7 @@
 }
 
 .box-text {
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   color: black;
 }
 
@@ -172,11 +179,11 @@
 }
 
 .beer {
-  font-size: 6rem;
+  font-size: 6vw;
 }
 
 .wine {
-  font-size: 6rem;
+  font-size: 6vw;
 }
 
 
@@ -362,7 +369,7 @@
   }
   /*ヘッダー*/
   .header {
-    height: 20%;
+    height: 4rem;
     width: 100vw;
     position: fixed;
     top: 0;
@@ -372,17 +379,32 @@
   }
   .header-logo {
     text-align: center;
-    border-top: 1px black solid;
-    border-bottom: 1px black solid;
+    border-top: 1.5px black solid;
+    border-bottom: 1.5px black solid;
+    margin-top: 0.8vw;
+    margin-bottom: 0.8vw;
+  }
+  .pc-logo {
+    display: none;
+  }
+  .phone-logo {
+    display: block;
+  }
+  .phone-logo1 {
+
+  }
+  .phone-logo2 {
+
   }
   .header-logo h3 {
-   font-size: 1rem;
-   letter-spacing: 0.4em;
+   font-size: 1.1vw;;
+   letter-spacing: 0.6em;
    margin-left: 0.4rem;
   }
   .header-logo h1 {
-    font-size: 2rem;
+    font-size: 2vw;
     margin-top: -0.5rem;
+    margin-bottom: -0.3vw;
   }
   .pc-logo {
     display: none;
@@ -404,8 +426,13 @@
   .clock {
     display: none;
   }
+  .search {
+    display: flex;
+    align-items: center;
+  }
   .recipe-search {
     text-align: left;
+    margin-top: 1.5vw;
   }
   .search-text {
     display: none;
@@ -446,13 +473,15 @@
   .phone-page {
     display: flex;
     padding:0.3rem 0;
+    margin-top: 1vw;
   }
   .menu {
     display: none;
   }
   /*メイン*/
   .main {
-    width: 75vw;
+    width: 100vw;
+    margin-top: 6vw;
   }
   .main-content {
     background-color: #ffecd0a6;
@@ -470,7 +499,7 @@
   .main-text p {
     font-weight: bold;
   }
-  
+
   /*ピックアップ*/
   .pickup {
     width:95%;
@@ -495,7 +524,7 @@
     margin: 0 auto;
   }
   .box {
-    width: 50%;
+    width: 25vw;
     height:25vw;
     text-align: center
   }
@@ -508,28 +537,28 @@
      background-color: #f9e0c173;
   }
   .box1 p {
-    font-size: 3rem;
+    font-size: 3vw;
     font-weight: 200;
   }
-  
+
   .box-text {
-    font-size: 1.5rem;
+    font-size: 1.8vw;
     color: black;
   }
-  
+
   .box-text:hover {
     color: black;
   }
-  
+
   .beer {
-    font-size: 6rem;
+    font-size: 6vw;
   }
-  
+
   .wine {
-    font-size: 6rem;
+    font-size: 6vw;
   }
-  
-  
+
+
   /*フッター*/
   .footer {
     text-align: center;
@@ -542,9 +571,9 @@
   .footer p {
     color: white;
   }
-  
+
   /*新規登録*/
-  
+
   .user-sign-up {
     width: 70%;
     margin: 3rem auto;
@@ -552,11 +581,11 @@
   .new-table {
     background-color: #845b1d33;
   }
-  
+
   .actions {
     text-align: end;
   }
-  
+
   .new-submit {
     font-size: 1.5rem;
   }
@@ -565,13 +594,13 @@
     width: 35%;
     margin: 3rem auto;
   }
-  
+
   /*おつまみ関連*/
   .index-top {
     width:70%;
     margin: 0 auto;
   }
-  
+
   /*おつまみshowページ*/
   .recipe-show {
     padding: 3rem;
@@ -590,6 +619,9 @@
   .recipe-detail {
     width: 75%;
     padding: 0 5rem;
+  }
+  .user-image img {
+    width: 60%
   }
   .recipe-detail-image, .recipe-detail-title {
     text-align: center;
@@ -633,7 +665,7 @@
   .detail-link:hover {
     color: black;
   }
-  
+
   .user-recipe h3 {
     text-align: center;
     font-size: 2rem;
@@ -658,7 +690,7 @@
     font-size: 1.5rem;
     font-weight: 300;
   }
-  
+
   /*マイページ*/
   .my-page {
     width: 60%;
