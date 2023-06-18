@@ -6,7 +6,7 @@
       <%= link_to root_path, class: "link" do %>
         <%= image_tag 'logo10.png', width: '85%', height: '850%', class: "pc-logo" %>
         <h3 class="phone-logo phone-logo1">おつまみ</h3>
-        <h1  class="phone-logo phone-logo2">倶楽部</h1>
+        <h3 class="phone-logo phone-logo2">倶楽部</h3>
       <% end %>
   </div>
 
@@ -16,9 +16,11 @@
         <%= f.label :title_cont, '〜おつまみを探す〜' , class: "search-text" %>
         <%= f.label :title_cont, 'おつまみ検索' , class: "search-text-phone" %>
       </div>
-      <div>
+      <div class="search-area">
         <%= f.search_field :title_cont, class: "search-form" %>
-        <%= f.submit '検索', class: "search-submit btn btn-outline-dark p-0 pl-1 pr-1" %>
+        <div class= "search-submit">
+          <%= f.submit '検索',class: "search-submit btn btn-outline-dark p-0 pl-1 pr-1" %>
+        </div>
       </div>
     <% end %>
   </div>
@@ -79,5 +81,8 @@
         <%= link_to "・ログイン", new_user_session_path, class: "link  ml-3" %>
       </li>
     <% end %>
+  </div>
+  <div class="menu" id="menu-button">
+    <a href="#">MENU</a>
   </div>
 </div>
