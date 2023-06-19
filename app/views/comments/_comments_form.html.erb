@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= form_with model: [recipe, comment], local: false do |f| %>
+  <%= form_with model: [recipe, comment], local: false, class: "comments-form" do |f| %>
     <%= f.text_area :comment, rows: '3', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>

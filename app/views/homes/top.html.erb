@@ -5,85 +5,97 @@
       <%= link_to "管理者ページ", users_admin_top_path, class: "link  ml-3" %>
     <% end %>
   <% end %>
-  
+
   <div class="section-border1"></div>
-  
-  <div class="main-image d-flex justify-content-center p-5 mt-5 w-100">
+
+  <div class="main-image d-flex justify-content-center">
    <%= image_tag 'main-image.jpg', width: '100%', height: '100%' %>
   </div>
-  
+
   <div class="section-border"></div>
 
-  <div class="pickup d-flex flex-column mb-5">
+  <div class="pickup d-flex flex-column ">
     <h3 class="text-top">Pick Upおつまみ</h3>
-      <div class="d-flex justify-content-between">
+      <div class="pickup-recipe-box">
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe2) do%>
             <%= image_tag @recipe2.get_recipe_image(200,200), width: '80%', height: '80%' %>
-            <h4 class="pickup-title"><%= @recipe2.title %></h4>
+            <div class="pickup-recipe-text">
+              <h4 class="pickup-title"><%= @recipe2.title %></h4>
+              <h5 class="pickup-body"><%= @recipe2.body %></h5>
+            </div>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe3) do%>
             <%= image_tag @recipe3.get_recipe_image(200,200), width: '80%', height: '80%' %>
-            <h4 class="pickup-title"><%= @recipe3.title %></h4>
+            <div class="pickup-recipe-text">
+              <h4 class="pickup-title"><%= @recipe3.title %></h4>
+              <h5 class="pickup-body"><%= @recipe3.body %></h5>
+            </div>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe4) do%>
             <%= image_tag @recipe4.get_recipe_image(200,200),  width: '80%', height: '80%' %>
-            <h4 class="pickup-title"><%= @recipe4.title %></h4>
+            <div class="pickup-recipe-text">
+              <h4 class="pickup-title"><%= @recipe4.title %></h4>
+              <h5 class="pickup-body"><%= @recipe4.body %></h5>
+            </div>
           <% end %>
         </div>
         <div class="pickup-recipe">
           <%= link_to recipe_path(@recipe5) do%>
             <%= image_tag @recipe5.get_recipe_image(200,200),  width: '80%', height: '80%' %>
-            <h4 class="pickup-title"><%= @recipe5.title %></h4>
+            <div class="pickup-recipe-text">
+              <h4 class="pickup-title"><%= @recipe5.title %></h4>
+              <h5 class="pickup-body"><%= @recipe5.body %></h5>
+            </div>
           <% end %>
         </div>
       </div>
   </div>
-    
+
   <div class="section-border"></div>
 
-  <div class="tags mt-5 mb-5">
+  <div class="tags">
     <h3 class="text-top">タグで探す</h3>
     <% @tags.each do |tags| %>
-      <%= link_to tags.name, tag_path(tags), class: "btn btn-outline-dark mt-3"%>
+      <%= link_to tags.name, tag_path(tags), class: "btn btn-outline-dark tags-text"%>
     <% end %>
   </div>
-  
+
   <div class="section-border"></div>
-  <div class="beer_recipe d-flex justify-content-center flex-wrap mt-5">
+  <div class="beer_recipe d-flex justify-content-center flex-wrap">
     <div class="box box1 d-flex justify-content-center">
        <p><span class="beer">ビール</span><br>とつまむ</p>
     </div>
-    
+
      <% @beer.each do |beer_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(beer_recipe) do %>
-            <div class="box-image mt-2 mb-2"><%= image_tag beer_recipe.get_recipe_image(200,200), width: '60%', height: '60%' %></div>
-            <div class="box-text mt-2"><%= beer_recipe.title %></div>
+            <div class="box-image"><%= image_tag beer_recipe.get_recipe_image(200,200), width: '60%', height: '60%' %></div>
+            <div class="box-text "><%= beer_recipe.title %></div>
           <% end %>
         </div>
     <% end %>
-    
+
     <div class="box box1 d-flex justify-content-center">
       <%= image_tag 'beer.jpg', width: '100%', height: '100%' %>
     </div>
   </div>
-  
+
   <div class="section-border"></div>
 
-  <div class="beer_recipe d-flex justify-content-center flex-wrap mt-5">
+  <div class="beer_recipe d-flex justify-content-center flex-wrap">
     <div class="box box1 d-flex justify-content-center">
        <%= image_tag 'wine.jpg', width: '100%', height: '100%' %>
     </div>
      <% @wine.each do |wine_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(wine_recipe) do %>
-            <div class="box-image mt-2 mb-2"><%= image_tag wine_recipe.recipe_image, width: '60%', height: '60%' %></div>
-            <div class="box-text mt-2"><%= wine_recipe.title %></div>
+            <div class="box-image"><%= image_tag wine_recipe.recipe_image, width: '60%', height: '60%' %></div>
+            <div class="box-text"><%= wine_recipe.title %></div>
           <% end %>
         </div>
     <% end %>
@@ -91,19 +103,19 @@
       <p><span class="wine">ワイン</span><br>に合わせる</p>
     </div>
   </div>
-  
+
   <div class="section-border"></div>
-  
+
   <div class="favorite-ranking">
-    <h3 class="text-top">人気のおつまみ</h3>
+    <h3 class="text-top favorite-text-top">人気のおつまみ</h3>
     <div class="">
-      <div class="pickup-recipe d-flex justify-content-between">
+      <div class="favorite-recipe d-flex">
         <% @recipe_favorites.each do |favorite_recipe| %>
-          <div class="pickup-recipe-content" >
+          <div class="favorite-recipe-content" >
             <%= link_to recipe_path(favorite_recipe) do %>
-              <%= image_tag favorite_recipe.get_recipe_image(170,170), width: '70%', height: '70%' %>
+              <%= image_tag favorite_recipe.get_recipe_image(170,170), width: '70%', height: '70%', class: "favo-img" %>
               <p class="favorite-text"><%= favorite_recipe.title %></p>
-              <span class="text-dark"><%= "#{favorite_recipe.favorites.count}" + "♡" %></span>
+              <p class="text-dark"><%= "#{favorite_recipe.favorites.count}" + "♡" %></p>
             <% end %>
           </div>
         <% end %>
@@ -111,3 +123,17 @@
     </div>
   </div>
 </div>
+<div class="start">
+    <p><%= image_tag asset_path('logo10.png') %></p>
+</div>
+
+<script>
+  $(function() {
+	setTimeout(function(){
+		$('.start p').fadeIn(1600);
+	},500); //0.5秒後にロゴをフェードイン!
+	setTimeout(function(){
+		$('.start').fadeOut(500);
+	},2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+});
+</script>
