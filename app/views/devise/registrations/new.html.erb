@@ -1,6 +1,6 @@
 <div>
   <div class="section-border1"></div>
-  
+
   <div class="user-sign-up">
     <h2>新規登録</h2>
       <%= form_with model: @user, url: user_registration_path do |f| %>
@@ -8,35 +8,35 @@
         <table class="table table-bordered new-table">
         	<tbody>
         		<tr class="table-row">
-        			<th colspan="2" class="table-head"><%= f.label :"ユーザーネーム" %><br><%= f.text_field :user_name, autofocus: true %>
+        			<th colspan="2" class="table-head"><%= f.label :"ユーザーネーム", class: "sign-up-text" %><br><%= f.text_field :user_name, autofocus: true, class: "sign-up-form" %>
         		</tr>
         		<tr class="table-row">
-        			<th colspan="1" class="table-head"> <%= f.label :"姓" %><br> <%= f.text_field :first_name, autofocus: true %></th>
-        			<th colspan="1" class="table-head"><%= f.label :"名" %> <br><%= f.text_field :last_name, autofocus: true %></th>
+        			<th colspan="1" class="table-head"> <%= f.label :"姓", class: "sign-up-text" %><br> <%= f.text_field :first_name, autofocus: true, class: "sign-up-form" %></th>
+        			<th colspan="1" class="table-head"><%= f.label :"名", class: "sign-up-text" %> <br><%= f.text_field :last_name, autofocus: true, class: "sign-up-form" %></th>
         		</tr>
         		<tr class="table-row">
-        			<th colspan="1" class="table-head"><%= f.label :"せい" %><br> <%= f.text_field :first_name_kana, autofocus: true %></th>
-        			<th colspan="1" class="table-head"><%= f.label :"めい" %><br> <%= f.text_field :last_name_kana, autofocus: true %><br /></th>
+        			<th colspan="1" class="table-head"><%= f.label :"せい", class: "sign-up-text" %><br> <%= f.text_field :first_name_kana, autofocus: true , class: "sign-up-form"%></th>
+        			<th colspan="1" class="table-head"><%= f.label :"めい", class: "sign-up-text" %><br> <%= f.text_field :last_name_kana, autofocus: true, class: "sign-up-form" %><br /></th>
         		</tr>
         		<tr class="table-row">
-        			<th colspan="2" class="table-head"><%= f.label :"電話番号" %><br> <%= f.text_field :phone_number, autofocus: true %></th>
+        			<th colspan="2" class="table-head"><%= f.label :"電話番号", class: "sign-up-text" %><br> <%= f.text_field :phone_number, autofocus: true, class: "sign-up-form" %></th>
         		</tr>
         		<tr class="table-row">
-        			<th colspan="2" class="table-head"><%= f.label :"メールアドレス" %><br> <%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+        			<th colspan="2" class="table-head"><%= f.label :"メールアドレス", class: "sign-up-text" %><br> <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-form" %></th>
         		</tr>
         		<tr class="table-row">
-        			<th colspan="1" class="table-head"><%= f.label :"パスワード(6文字以上)" %><br>
-                  <%= f.password_field :password, autocomplete: "new-password" %>
+        			<th colspan="1" class="table-head"><%= f.label :"パスワード(6文字以上)", class: "sign-up-text" %><br>
+                  <%= f.password_field :password, autocomplete: "new-password", class: "sign-up-form" %>
               </th>
-        			<th colspan="1" class="table-head"><%= f.label :"パスワード(確認用)" %><br> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
+        			<th colspan="1" class="table-head"><%= f.label :"パスワード(確認用)", class: "sign-up-text" %><br> <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-form" %></th>
         		</tr>
         	</tbody>
         </table>
         <div class="actions">
-          <div>
-            <%= f.submit "登録", class: "btn btn-outline-secondary new-submit mb-3" %>
+          <div class="new-submit">
+            <%= f.submit "登録", class: "btn btn-outline-secondary mb-3" %>
           </div>
-          <div>
+          <div class="new-submit">
             <%= render "devise/shared/links" %>
           </div>
         </div>
