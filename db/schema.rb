@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 2023_06_11_122626) do
     t.integer "alcohol_genre_id", null: false
     t.string "title", null: false
     t.string "body", null: false
-    t.string "point", null: false
-    t.string "cook_time", null: false
+    t.string "point"
+    t.string "cook_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["alcohol_genre_id"], name: "index_recipes_on_alcohol_genre_id"
