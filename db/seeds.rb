@@ -5,21 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-(1..5).each do |n|
-  User.create!(email: "user#{n}@test.com",
-               password: "password",
-               user_name: ( n == 1 ? "admin" : "user#{n}" ),
-               last_name: "test#{n}",
-               last_name_kana: "test#{n}",
-               first_name: "test#{n}",
-               first_name_kana: "test#{n}",
-               phone_number: "0#{n}000000000",
-               admin: (n == 1 ? true : false))
-end
-
-alcohole_genre_names = %w(
+alcohol_genre_names = %w(
   ビール
   ワイン
   日本酒
@@ -28,7 +14,34 @@ alcohole_genre_names = %w(
   焼酎
 )
 
-alcohole_genre_names.each do |name|
+alcohol_genres = alcohol_genre_names.map do |name|
   AlcoholGenre.create!(name: name)
 end
+
+admin = User.create!(email: "admin@test.com",
+               password: "password",
+               user_name: "admin",
+               last_name: "admin",
+               last_name_kana: "admin",
+               first_name: "admin",
+               first_name_kana: "admin",
+               phone_number: "00000000000",
+               admin: true)
+
+alcohol_genres.each.with_index(1) do |alcohol_genre, i|
+  admin.recipes.create!(alcohol_genre_id: alcohol_genre.id, title: "test#{i}", body: "test " * 20 )
+end
+
+(1..5).each do |n|
+  User.create!(email: "user#{n}@test.com",
+               password: "password",
+               user_name: "user#{n}",
+               last_name: "user#{n}",
+               last_name_kana: "user#{n}",
+               first_name: "user#{n}",
+               first_name_kana: "user#{n}",
+               phone_number: "0#{n}000000000")
+end
+
+
   
