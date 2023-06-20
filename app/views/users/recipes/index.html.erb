@@ -15,7 +15,7 @@
             <%= image_tag recipes.get_recipe_image(250,250), width: '50%', height: '50%' %>
               <div class="phone-recipe">
                 <%= content_tag :div, recipes.title, class: "user-recipe-title phone-user-recipe-title" %>
-                <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
+                <%= content_tag :div, "調理時間#{recipes&.cook_time}", class: "user-recipe-image" %>
               </div>
            </div>
             <%= content_tag :div, recipes.title, class: "user-recipe-title pc-user-recipe-title" %>
