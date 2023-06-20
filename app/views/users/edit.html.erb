@@ -4,6 +4,13 @@
   <div class="user-sign-up">
     <h2>登録情報編集</h2>
       <%= form_with model: @user do |f| %>
+       <% if @user.errors.any? %>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <%end%>
         <table class="table table-bordered new-table">
         	<tbody>
         	  <tr class="table-row">

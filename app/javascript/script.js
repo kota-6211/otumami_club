@@ -10,4 +10,10 @@ setInterval(function() {
     let clock = document.getElementById("t1").innerHTML = ampm + " " + hours + ':' + minutes;
 }, 1000);
 
+$(function() {
+  $('.genre-botton').on('click', function(event) {
+    event.preventDefault();
+    $('.genre-links').slideToggle(500);
+  });
+});
 

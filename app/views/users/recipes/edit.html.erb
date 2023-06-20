@@ -6,6 +6,13 @@
     <h2>おつまみ　編集</h2>
   
     <%= form_with model: @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+      <% if @recipe.errors.any? %>
+        <ul>
+          <% @recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <%end%>
       <div class="row">
         <div class="col">
           <%= f.label :recipe_image, "おつまみ写真" %><br>

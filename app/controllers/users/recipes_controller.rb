@@ -4,10 +4,12 @@ class Users::RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @tags = Tag.order(created_at: :desc).limit(25)
+    @genre = AlcoholGenre.all
   end
 
   def new
     @recipe = Recipe.new
+    @genre = AlcoholGenre.all
   end
 
   def create
@@ -23,9 +25,13 @@ class Users::RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @comment = Comment.new
+    @genre = AlcoholGenre.all
   end
 
-  def edit; end
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @genre = AlcoholGenre.all
+  end
 
   def update
     if @recipe.update(recipe_params)
@@ -43,6 +49,7 @@ class Users::RecipesController < ApplicationController
 
   def search
     @results = @q.result
+    @genre = AlcoholGenre.all
   end
 
   private
