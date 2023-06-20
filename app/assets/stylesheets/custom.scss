@@ -16,6 +16,29 @@
   margin: 1rem 2rem;
   padding: 1rem;
 }
+// ジャンル
+.genre-links {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  background-image: image-url("paper3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
+  border: 1.5px black solid;
+}
+.genre-link {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.genre-link a {
+  color: black;
+  font-weight: bold;
+}
 /*区切り線*/
 .section-border1 {
   border: 1px black solid;
@@ -101,7 +124,7 @@
   width: 75vw;
 }
 .main-content {
-  background-image: image-url("wood1.jpg");
+  // background-image: image-url("wooden3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -406,6 +429,7 @@
     margin: 1rem 2rem;
     padding: 1rem;
   }
+  
   /*区切り線*/
   .section-border1 {
     border: 1px black solid;

@@ -9,6 +9,7 @@ class ChatsController < ApplicationController
           })
         @answer = response.dig("choices", 0, "message", "content")
     end
+    @genre = AlcoholGenre.all
   end
   
   def create
@@ -20,6 +21,7 @@ class ChatsController < ApplicationController
   
   def show
     @answer = Chat.all
+    @genre = AlcoholGenre.all
   end
   
 end

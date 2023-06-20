@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     if current_user.admin != true
       redirect_to root_path
     end
+    @genre = AlcoholGenre.all
   end
 
   def index
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @users = User.all
+    @genre = AlcoholGenre.all
   end
 
   def saved_recipes
@@ -21,6 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @recipes = Recipe.all
+    @genre = AlcoholGenre.all
   end
 
   def edit
@@ -28,6 +31,7 @@ class UsersController < ApplicationController
     if (current_user.admin != true) && (@user&.id != current_user.id)
       redirect_to root_path
     end
+    @genre = AlcoholGenre.all
   end
 
   def update
@@ -44,10 +48,12 @@ class UsersController < ApplicationController
     if (current_user.admin != true) && (@user&.id != current_user.id)
       redirect_to root_path
     end
+    @genre = AlcoholGenre.all
   end
 
   def unsubscribe
     @user = current_user
+    @genre = AlcoholGenre.all
   end
 
   def withdraw

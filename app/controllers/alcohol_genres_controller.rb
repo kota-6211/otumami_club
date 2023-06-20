@@ -5,6 +5,7 @@ class AlcoholGenresController < ApplicationController
     end
     @alcohol_genres = AlcoholGenre.all
     @alcohol_genre = AlcoholGenre.new
+    @genre = AlcoholGenre.all
   end
 
   def create
@@ -21,12 +22,14 @@ class AlcoholGenresController < ApplicationController
   def show
     @alcohol_genre = AlcoholGenre.find(params[:id])
     @recipes = @alcohol_genre.recipes
+    @genre = AlcoholGenre.all
   end
 
   def edit
     if current_user.admin != true
       redirect_to root_path
     end
+    @genre = AlcoholGenre.all
   end
 
   def update

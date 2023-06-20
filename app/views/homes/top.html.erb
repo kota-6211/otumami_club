@@ -17,42 +17,21 @@
   <div class="pickup d-flex flex-column ">
     <h3 class="text-top">Pick Upおつまみ</h3>
       <div class="pickup-recipe-box">
-        <div class="pickup-recipe">
-          <%= link_to recipe_path(@recipe2) do%>
-            <%= image_tag @recipe2.get_recipe_image(200,200), width: '80%', height: '80%' %>
-            <div class="pickup-recipe-text">
-              <h4 class="pickup-title"><%= @recipe2.title %></h4>
-              <h5 class="pickup-body"><%= @recipe2.body %></h5>
+        <% if @pick_up_recipes.any? %>
+          <% @pick_up_recipes.each do |recipe| %>
+            <div class="pickup-recipe">
+              <%= link_to recipe_path(recipe) do%>
+                <%= image_tag recipe.get_recipe_image(200,200), width: '80%', height: '80%' %>
+                <div class="pickup-recipe-text">
+                  <h4 class="pickup-title"><%= recipe.title %></h4>
+                  <h5 class="pickup-body"><%= recipe.body %></h5>
+                </div>
+              <% end %>
             </div>
           <% end %>
-        </div>
-        <div class="pickup-recipe">
-          <%= link_to recipe_path(@recipe3) do%>
-            <%= image_tag @recipe3.get_recipe_image(200,200), width: '80%', height: '80%' %>
-            <div class="pickup-recipe-text">
-              <h4 class="pickup-title"><%= @recipe3.title %></h4>
-              <h5 class="pickup-body"><%= @recipe3.body %></h5>
-            </div>
-          <% end %>
-        </div>
-        <div class="pickup-recipe">
-          <%= link_to recipe_path(@recipe4) do%>
-            <%= image_tag @recipe4.get_recipe_image(200,200),  width: '80%', height: '80%' %>
-            <div class="pickup-recipe-text">
-              <h4 class="pickup-title"><%= @recipe4.title %></h4>
-              <h5 class="pickup-body"><%= @recipe4.body %></h5>
-            </div>
-          <% end %>
-        </div>
-        <div class="pickup-recipe">
-          <%= link_to recipe_path(@recipe5) do%>
-            <%= image_tag @recipe5.get_recipe_image(200,200),  width: '80%', height: '80%' %>
-            <div class="pickup-recipe-text">
-              <h4 class="pickup-title"><%= @recipe5.title %></h4>
-              <h5 class="pickup-body"><%= @recipe5.body %></h5>
-            </div>
-          <% end %>
-        </div>
+        <% else %>
+          no-data
+        <% end %>
       </div>
   </div>
 
@@ -70,16 +49,17 @@
     <div class="box box1 d-flex justify-content-center">
        <p><span class="beer">ビール</span><br>とつまむ</p>
     </div>
-
-     <% @beer.each do |beer_recipe| %>
+      
+    <% if AlcoholGenre.any? %>  
+      <% @beer.each do |beer_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(beer_recipe) do %>
             <div class="box-image"><%= image_tag beer_recipe.get_recipe_image(200,200), width: '60%', height: '60%' %></div>
             <div class="box-text "><%= beer_recipe.title %></div>
           <% end %>
         </div>
+      <% end %>
     <% end %>
-
     <div class="box box1 d-flex justify-content-center">
       <%= image_tag 'beer.jpg', width: '100%', height: '100%' %>
     </div>
@@ -91,13 +71,15 @@
     <div class="box box1 d-flex justify-content-center">
        <%= image_tag 'wine.jpg', width: '100%', height: '100%' %>
     </div>
-     <% @wine.each do |wine_recipe| %>
+    <% if AlcoholGenre.any? %>
+      <% @wine.each do |wine_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(wine_recipe) do %>
             <div class="box-image"><%= image_tag wine_recipe.recipe_image, width: '60%', height: '60%' %></div>
             <div class="box-text"><%= wine_recipe.title %></div>
           <% end %>
         </div>
+      <% end %>
     <% end %>
     <div class="box box1 d-flex justify-content-center">
       <p><span class="wine">ワイン</span><br>に合わせる</p>
