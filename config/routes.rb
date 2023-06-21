@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#top'
   devise_for :users
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
 
   # 管理者用の管理ページのリンク一覧ページ
   get 'users/admin_top' => 'users#admin_top'

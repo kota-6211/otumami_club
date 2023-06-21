@@ -1,21 +1,27 @@
 <div class="section-border1"></div>
+
 <div class="tumami_maker">
   <h3>『おつまみメーカー』</h3>
-  <h5>に聞いて今日のおつまみを考えてもらう</h5>
-  <div>
-    <p>今ある食材やお菓子を入れて<br>『おつまみ考えて！』<br>ボタンで何ができるか聞いてみよう</p>
+  <h5>に聞いて今日のおつまみを考えてもらおう！</h5>
+  <div class="robo">
+    <%= image_tag 'robo.jpg' %>
+  </div>
+  <div class="robo-text">
+    <p>今ある食材やお菓子を入れると何ができるか教えてくれるよ！</p>
     <%= form_with(url: chats_path, method: :get) do |f| %>
-      <%= f.text_field :question, size: 50, placeholder: "じゃがりこ、たまご、とうふ、などなど" %>
-      <%= f.submit "で作るおつまみ考えて！" %>
+      <%= f.text_field :question, size: 50, placeholder: "じゃがりこ、たまご、とうふ、などなど", class: "gpt-form" %>
+      <div class="new-submit robo-submit">
+        <%= f.submit "聞いてみる", class: "btn btn-outline-secondary"%>
+      </div>
     <% end %>
   </div>
   <div class="answer">
     <%= simple_format(@answer) %>
     <% if user_signed_in? %>
       <% if @answer.present? %>
-        <%= link_to "回答を保存", chats_path(text: @answer), method: :post %>
+        <%= link_to "おつまみを保存", chats_path(text: @answer), method: :post, class: "btn btn-outline-secondary" %>
       <% end %>
-    <% end %>  
+    <% end %>
   </div>
-  
+
 </div>
