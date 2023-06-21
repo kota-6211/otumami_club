@@ -49,8 +49,8 @@
     <div class="box box1 d-flex justify-content-center">
        <p><span class="beer">ビール</span><br>とつまむ</p>
     </div>
-      
-    <% if AlcoholGenre.any? %>  
+
+    <% if AlcoholGenre.any? %>
       <% @beer.each do |beer_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(beer_recipe) do %>
@@ -81,8 +81,8 @@
         </div>
       <% end %>
     <% end %>
-    <div class="box box1 d-flex justify-content-center">
-      <p><span class="wine">ワイン</span><br>に合わせる</p>
+    <div class="box box1 d-flex justify-content-center wine-bg">
+      <p><span>ワイン</span><br>に合わせる</p>
     </div>
   </div>
 
@@ -106,7 +106,7 @@
   </div>
 </div>
 <div class="start">
-    <p><%= image_tag asset_path('logo10.png') %></p>
+    <p class="start-img"><%= image_tag asset_path('logo10.png') %></p>
 </div>
 
 <script>
@@ -115,7 +115,7 @@
 		$('.start p').fadeIn(1600);
 	},500); //0.5秒後にロゴをフェードイン!
 	setTimeout(function(){
-		$('.start').fadeOut(500);
+		$('.start').fadeOut(1000);
 	},2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
 });
 </script>

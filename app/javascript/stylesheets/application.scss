@@ -18,6 +18,28 @@
   margin: 1rem 2rem;
   padding: 1rem;
 }
+.start {
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9000;
+}
+.start p {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+  display: none;
+	z-index: 9999;
+	width: 50vw;
+  text-align: center;
+}
+.start-img img {
+  width: 20vw;
+}
 // ジャンル
 .genre-links {
   position: fixed;
@@ -40,6 +62,16 @@
 .genre-link a {
   color: black;
   font-weight: bold;
+}
+.phone_menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/paper3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
 }
 /*区切り線*/
 .section-border1 {
@@ -67,7 +99,6 @@
   background-image: url("../images/paper3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  // background-color: #e7cca3;
   z-index: 100;
 }
 .header-logo {
@@ -98,7 +129,6 @@
   display: none;
 }
 .search-submit {
-  // background-color: #e7cca3;
   padding: 0;
 }
 .header-link {
@@ -126,9 +156,9 @@
   width: 75vw;
 }
 .main-content {
-  // background-image: image-url("wooden3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background: #faebd770;
 }
 .main-image {
   margin-bottom: 10%;
@@ -199,8 +229,8 @@
   align-items: center;
 }
 .box2 {
-   border:2px solid black;
-   background-color: #f9e0c173;
+  border:2px solid black;
+  background-color: #f9e0c173;
 }
 .box1 p {
   font-size: 3rem;
@@ -222,6 +252,9 @@
 
 .wine {
   font-size: 6vw;
+}
+.wine-bg {
+  background: #811d4233;
 }
 // いいね
 .favorite-recipe {
@@ -267,18 +300,36 @@
 .new-submit {
   font-size: 1.5rem;
 }
+.new-submit input {
+  font-size: 1vw;
+}
+.new-submit a {
+  font-size: 1vw;
+}
+.new-submit input:hover {
+  color: black;
+  background: #e5d8c4;
+}
+.new-submit a:hover {
+  color: black;
+  background: #e5d8c4;
+}
  /*ログイン*/
 .user-sign-in {
   width: 35%;
   margin: 3rem auto;
 }
-
 /*おつまみ関連*/
 .index-top {
-  width:70%;
-  margin: 0 auto;
+  width: 100%;
 }
-
+.index-content {
+  width: 86%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 /*おつまみshowページ*/
 .recipe-show {
   display: flex;
@@ -318,6 +369,7 @@
 .user-show {
  padding: 3rem;
  display: flex;
+ justify-content: space-around;
 }
 .user-detail {
   width: 25%;
@@ -335,7 +387,7 @@
   font-size: 1.7rem;
 }
 .user-recipe {
-  width: 75%;
+  width: 50%;
   padding:0 2rem;
 }
 .detail-links {
@@ -354,10 +406,11 @@
   font-size: 2rem;
 }
 .user-recipes {
-  padding: 1.5rem;
-  margin: 2rem 3rem;
+  padding: 1vw;
+  margin: 1vw;
   border: 3px #d4d4d4 solid;
   background-color: #f9e0c173;
+  width: 30vw;
 }
 .user-recipes:hover {
   color: black;
@@ -390,11 +443,6 @@
   padding: 3rem;
   margin: 0 auto;
 }
-/*おつまみメーカー*/
-.tumami_maker {
-  width: 80%;
-  margin: 3rem auto;
-}
 /*レシピ投稿、編集*/
 .new-recipe-page, .edit-recipe-page {
   width: 80%;
@@ -419,6 +467,23 @@
 .unsubscribe-ok:hover {
   color: red;
 }
+/*おつまみメーカー*/
+.tumami_maker {
+  width: 80%;
+  margin: 3rem auto;
+}
+.robo img {
+  width: 47vw;
+  margin: 2rem 0;
+}
+.robo-submit {
+  width: 51%;
+  text-align: end;
+}
+.answer a:hover {
+  color: black;
+  background: #e5d8c4;
+}
 /*レスポンシブ*/
 @media screen and (max-width:1024px) {
   .layouts {
@@ -431,7 +496,7 @@
     margin: 1rem 2rem;
     padding: 1rem;
   }
-  
+
   /*区切り線*/
   .section-border1 {
     border: 1px black solid;
@@ -448,6 +513,39 @@
   /*ボタン類*/
   .recipe-btn {
     background: #d7c2b0;
+  }
+  // ジャンル
+.genre-links {
+    position: fixed;
+    top: 6vw;
+    width: 100vw;
+    height: 9vw;
+    background-image: url("../images/paper3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+    border: 1.5px black solid;
+  }
+  .genre-link {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .genre-link a {
+    color: black;
+    font-weight: bold;
+  }
+  .phone_menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/paper3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
   }
   /*ヘッダー*/
   .header {
@@ -508,7 +606,6 @@
     height: 3.3vw;
   }
   .search-submit {
-    background-color: #e7cca3;
     padding: 0;
     font-size: 0.8vw;
   }
@@ -667,7 +764,7 @@
 
   /*おつまみ関連*/
   .index-top {
-    width:70%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -746,8 +843,9 @@
     font-size: 2rem;
   }
   .user-recipes {
+    width: 40vw;
     padding: 1.5rem;
-    margin: 5rem 3rem;
+    margin: 1rem 0;
     border: 3px #d4d4d4 solid;
     background-color: #f9e0c173;
   }
@@ -805,10 +903,51 @@
     padding: 2vw;
     font-size: 4vw;
   }
+  // ジャンル
+  .genre-links {
+    position: fixed;
+    top: 12vw;
+    width: 100vw;
+    height: 10vw;
+    background-image: url("../images/paper3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+    border: 1.5px black solid;
+  }
+  .genre-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .genre-link a {
+    color: black;
+    font-weight: bold;
+  }
+  .phone-links-page {
+    width: 50%;
+    height: 100%;
+    margin: 30vh auto;
+  }
+  .phone-links {
+    height: 100%;
+    padding-top: 30vw;
+    text-align: center;
+  }
+  .phone-link {
+    margin-bottom: 8vw;
+  }
+    .phone-link a {
+    font-size: 5vw;
+    font-weight: 700;
+  }
   // 区切り線
   .section-border1 {
     border: 1px black solid;
     margin-bottom: 3%;
+    margin-top: 12vw;
   }
   .section-border2 {
     border: 1px black solid;
@@ -903,7 +1042,6 @@
     height: 5.5vw;
   }
   .search-submit {
-    background-color: #e7cca3;
     padding: 0;
     font-size: 3vw;
     margin-left: 0.5vw;
@@ -1051,12 +1189,9 @@
   .beer {
     font-size: 6vw;
   }
-
   .wine {
     font-size: 6vw;
   }
-
-
   // フッター
   .footer {
     text-align: center;
@@ -1293,7 +1428,8 @@
     padding: 0.5rem;
     margin: 1vw 0;
     border: 3px #d4d4d4 solid;
-    background-color: #f9e0c173;
+    background-color: rgba(249, 224, 193, 0.4509803922);
+    width: 95vw;
   }
   .user-recipe-blok img {
     width: 25vw;
@@ -1347,23 +1483,27 @@
     width: 80%;
     margin: 0 auto;
   }
-}
-
-.start {
-	background: #FFF;
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 9000;
-}
-.start p {
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	display: none;
-	z-index: 9999;
-	width: 280px;
+  .gpt-form {
+    width: 80vw;
+  }
+   .start-img img {
+    width: 50vw;
+  }
+  /*おつまみメーカー*/
+  .tumami_maker {
+    width: 80%;
+    margin: 3rem auto;
+  }
+  .robo img {
+    width: 90vw;
+    margin: 2rem 0;
+  }
+  .robo-submit {
+    width: 100%;
+    text-align: end;
+  }
+  .answer a:hover {
+    color: black;
+    background: #e5d8c4;
+  }
 }

@@ -6,14 +6,14 @@
   </div>
 
   <div class="section-border"></div>
-  <h2><%= @results %></h2>
+  <h2><%= "検索結果" %></h2>
   <div class="index-top">
    <% @results.each do |recipes| %>
        <div class="user-recipes">
          <%= link_to recipe_path(recipes) do%>
            <div class="user-recipe-blok d-flex">
             <%= image_tag recipes.get_recipe_image(250,250) %>
-            <%= content_tag :div, "調理時間" + recipes.cook_time, class: "user-recipe-image" %>
+            <%= content_tag :div, "調理時間#{recipes.cook_time}", class: "user-recipe-image" %>
            </div>
             <%= content_tag :div, "〜" + recipes.title + "〜", class: "user-recipe-title" %>
             <%= content_tag :div, recipes.body, class: "user-recipe-body" %>

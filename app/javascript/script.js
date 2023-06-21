@@ -12,9 +12,14 @@ setInterval(function() {
 
 document.addEventListener("turbolinks:load", function(){
   $('.genre-botton').on('click', function(event) {
-    console.log('hello')
     event.preventDefault();
     $('.genre-links').slideToggle(500);
   });
 });
 
+document.addEventListener("turbolinks:load", function(){
+  $('.menu-botton').on('click', function(event) {
+    event.preventDefault();
+    $('.phone_menu').slideToggle(500);
+  });
+});

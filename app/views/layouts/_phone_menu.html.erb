@@ -1,0 +1,37 @@
+<div class="phone-links-page">
+  <% if user_signed_in? %>
+      <div class="phone-links">
+        <li class="phone-link">
+          <%= link_to "・おつまみ一覧", recipes_path, class: "phone-link text-dark" %>
+        </li>
+        <li class="phone-link">
+          <%= link_to "・合うお酒で探す", recipes_path, class: "phone-link genre-botton text-dark" %>
+        </li>
+        <li class="phone-link">
+          <%= link_to "・つまみメーカー", chats_path, class: "phone-link text-dark" %>
+        </li>
+        <li class="phone-link">
+          <%= link_to "・マイページ", user_path(current_user), class: "phone-link text-dark" %>
+        </li>
+        <li class="phone-link">
+          <%= link_to "・ログアウト", destroy_user_session_path, method: :delete, class: "text-dark text-dark" %>
+        </li>
+      </div>
+    <% else %>
+      <li class="phone-link">
+        <%= link_to "・つまみメーカー", chats_path, class: "phone-link text-dark" %>
+      </li>
+      <li class="phone-link">
+        <%= link_to "・おつまみ一覧", recipes_path, class: "phone-link text-dark" %>
+      </li>
+      <li class="phone-link">
+        <%= link_to "・合うお酒をで探す", recipes_path, class: "phone-link genre-botton text-dark" %>
+      </li>
+      <li class="phone-link">
+        <%= link_to "・新規登録", new_user_registration_path, class: "phone-link text-dark" %>
+      </li>
+      <li class="phone-link">
+        <%= link_to "・ログイン", new_user_session_path, class: "text-dark" %>
+      </li>
+    <% end %>
+</div>
