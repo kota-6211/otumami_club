@@ -1,5 +1,6 @@
 class Users::RecipesController < ApplicationController
   before_action :find_recipe, only: %w[ edit update destroy]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     @recipes = Recipe.all

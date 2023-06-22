@@ -1,4 +1,6 @@
 class AlcoholGenresController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+
   def index
     if current_user.admin != true
       redirect_to root_path
@@ -29,13 +31,20 @@ class AlcoholGenresController < ApplicationController
     if current_user.admin != true
       redirect_to root_path
     end
-    @genre = AlcoholGenre.all
+    @alcohol_genre = AlcoholGenre.find(params[:id])
   end
 
   def update
+    @alcohol_genre = AlcoholGenre.find(params[:id])
+    if @alcohol_genre.update(alcohol_genre_params)
+      redirect_to alcohol_genres_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+  
   end
 
   private

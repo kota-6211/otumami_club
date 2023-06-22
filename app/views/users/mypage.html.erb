@@ -32,11 +32,12 @@
         	</tbody>
         </table>
       <div class="new-submit">
-        <%= link_to "登録情報編集", edit_user_path(current_user), class: "btn btn-outline-secondary new-submit mb-3" %>
+        <%= link_to "登録情報編集", edit_user_path(@user), class: "btn btn-outline-secondary new-submit mb-3" %>
       </div>
-        
-      <% if current_user.admin == false %>
-        <%= link_to "アカウント削除", user_unsubscribe_path(current_user), class: "btn btn-outline-secondary new-submit mb-3" %>
-      <% end %>
+      <div class="new-submit">
+        <% if @user.admin == false %>
+          <%= link_to "アカウント削除", user_unsubscribe_path(current_user), class: "btn btn-outline-secondary new-submit mb-3" %>
+        <% end %>
+      </div>
   </div>
 </div>

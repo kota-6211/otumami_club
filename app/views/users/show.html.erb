@@ -1,6 +1,6 @@
 <div>
   <div class="section-border1"></div>
-  
+
   <div class="user-show">
     <div class="user-detail">
       <div class="user-profile">
@@ -21,10 +21,10 @@
           <% end %>
         </div>
       </div>
-      
+
       <div class="detail-links">
         <% if user_signed_in? %>
-          <% if @user.id == current_user.id %>
+          <% if @user.id == current_user.id || current_user.admin == true%>
             <div class="detail-link">
               <%= link_to "・登録情報詳細・", user_mypage_path(@user), class: "detail-link" %>
             </div>
@@ -41,8 +41,8 @@
         <% end %>
       </div>
     </div>
-  
-    
+
+
     <div class="user-recipe">
      <h3>My おつまみ</h3>
        <% @user.recipes.each do |recipes| %>

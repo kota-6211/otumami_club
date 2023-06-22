@@ -12,7 +12,7 @@ class Users::SessionsController < Devise::SessionsController
   
   protected
   def user_state
-    @user = User.find_by(user_name: params[:user][:user_name])
+    @user = User.find_by(user_name: params[:user][:email])
     if @user 
       if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
