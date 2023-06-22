@@ -31,6 +31,9 @@ class Users::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    if (current_user.admin != true) && (@recipe.user_id != current_user.id)
+      redirect_to root_path
+    end
     @genre = AlcoholGenre.all
   end
 

@@ -36,7 +36,7 @@
       </div>
       <div class="new-submit">
         <% if @user.admin == false %>
-          <%= link_to "アカウント削除", user_unsubscribe_path(current_user), class: "btn btn-outline-secondary new-submit mb-3" %>
+          <%= link_to "アカウント削除", user_unsubscribe_path(@user), class: "btn btn-outline-secondary new-submit mb-3" %>
         <% end %>
       </div>
   </div>

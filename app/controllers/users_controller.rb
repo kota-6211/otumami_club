@@ -16,7 +16,9 @@ class UsersController < ApplicationController
   end
 
   def saved_recipes
-    # @user = User.find_by(id: params[:id])
+    if (current_user.admin != true) && (@user&.id != current_user.id)
+      redirect_to root_path
+    end
     saved_recipes = SavedRecipe.where(user_id: current_user.id).pluck(:recipe_id)
     @saved_recipes = Recipe.find(saved_recipes)
   end
