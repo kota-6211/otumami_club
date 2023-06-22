@@ -1,5 +1,6 @@
 class Users::RecipesController < ApplicationController
   before_action :find_recipe, only: %w[ edit update destroy]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     @recipes = Recipe.all
@@ -30,6 +31,9 @@ class Users::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    if (current_user.admin != true) && (@recipe.user_id != current_user.id)
+      redirect_to root_path
+    end
     @genre = AlcoholGenre.all
   end
 

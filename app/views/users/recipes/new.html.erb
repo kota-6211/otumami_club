@@ -2,7 +2,7 @@
   <div class="section-border1"></div>
 
   <div class="new-recipe-page">
-    <h2>新規投稿</h2>
+    <h2>おつまみ投稿</h2>
 
     <%= form_with model: @recipe, url: recipes_path, method: :post do |f| %>
     <% if @recipe.errors.any? %>
@@ -21,20 +21,20 @@
       <div class="row">
         <div class="col-md-8">
           <div class="form-group">
-            <%= f.label :title, 'おつまみ名' %>
+            <%= f.label :title, 'おつまみ名(＊必須)' %>
             <%= f.text_field :title, class: 'form-control' %>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <%= f.label :alcohol_genre_id, 'お酒の種類' %>
+            <%= f.label :alcohol_genre_id, 'お酒の種類(＊必須)' %>
             <%= f.collection_select(:alcohol_genre_id, AlcoholGenre.all, :id, :name, {}, class: 'form-control') %>
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :body, 'おつまみ説明' %>
+        <%= f.label :body, 'おつまみ説明(＊必須)' %>
         <%= f.text_area :body, rows: 3, class: 'form-control' %>
       </div>
 
@@ -82,7 +82,7 @@
       <div class="form-group mt-5">
         <div class="row">
           <div class="col-md-4 mx-auto new-submit">
-            <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+            <%= f.submit '投稿', class: 'btn btn-outline-secondary new-submit btn-block' %>
           </div>
         </div>
       </div>

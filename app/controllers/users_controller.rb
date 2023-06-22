@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   def admin_top
     if current_user.admin != true
       redirect_to root_path
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
   end
 
   def saved_recipes
-    # @user = User.find_by(id: params[:id])
+    if (current_user.admin != true) && (@user&.id != current_user.id)
+      redirect_to root_path
+    end
     saved_recipes = SavedRecipe.where(user_id: current_user.id).pluck(:recipe_id)
     @saved_recipes = Recipe.find(saved_recipes)
   end
@@ -52,12 +55,15 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-    @user = current_user
+    @user = User.find_by(id: params[:user_id])
+    if (current_user.admin != true) && (@user&.id != current_user.id)
+      redirect_to root_path
+    end
     @genre = AlcoholGenre.all
   end
 
   def withdraw
-    @user = current_user
+    @user = User.find_by(id: params[:user_id])
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path

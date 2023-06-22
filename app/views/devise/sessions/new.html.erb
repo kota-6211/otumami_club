@@ -6,7 +6,7 @@
      <table class="table table-bordered new-table">
       	<tbody>
       		<tr class="table-row">
-      			<th colspan="2" class="table-head"><%= f.label :"ユーザーネーム", class: "sign-in-text" %><br><%= f.text_field :user_name, autofocus: true, class: "sign-in-form" %>
+      			<th colspan="2" class="table-head"><%= f.label :"メールアドレス", class: "sign-up-text" %><br> <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-form" %></th>
       		</tr>
       		<tr class="table-row">
       			<th colspan="1" class="table-head">

@@ -10,6 +10,7 @@
         <% @alcohol_genres.each do |alcohol_genres| %>
           <%= alcohol_genres.id %>
           <%= alcohol_genres.name %>
+          <%= link_to "編集", edit_alcohol_genre_path(alcohol_genres) %>
         <% end %>
       </div>
     </div>

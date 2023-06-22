@@ -484,6 +484,21 @@
   color: black;
   background: #e5d8c4;
 }
+// おつまみメーカー保存レシピ
+.gpt-content {
+  padding: 2vw;
+}
+.gpt-recipes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.gpt-recipe {
+  padding: 1vw;
+  width: 35vw;
+  border: 3px black solid;
+}
 /*レスポンシブ*/
 @media screen and (max-width:1024px) {
   .layouts {
@@ -885,6 +900,21 @@
     width: 80%;
     margin: 3rem auto;
   }
+  // おつまみメーカー保存レシピ
+  .gpt-content {
+    padding: 2vw;
+  }
+  .gpt-recipes {
+    width: 100%;
+    display: block;
+  }
+  .gpt-recipe {
+    padding: 1vw;
+    width: 95vw;
+    border: 3px black solid;
+    margin-bottom: 3vw;
+  }
+
   /*レシピ投稿、編集*/
   .new-recipe-page, .edit-recipe-page {
     width: 80%;
@@ -1505,5 +1535,27 @@
   .answer a:hover {
     color: black;
     background: #e5d8c4;
+  }
+    // おつまみメーカー保存レシピ
+  .gpt-content {
+    padding: 2vw;
+  }
+  .gpt-recipes {
+    width: 100%;
+    display: block;
+  }
+  .gpt-recipe {
+    padding: 1vw;
+    width: 95vw;
+    border: 3px black solid;
+    margin-bottom: 3vw;
+  }
+    .gpt-recipe p {
+    font-size: 3vw;
+  }
+  /*レシピ投稿、編集*/
+  .new-recipe-page, .edit-recipe-page {
+    width: 80%;
+    margin: 0 auto;
   }
 }

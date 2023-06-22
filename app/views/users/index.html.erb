@@ -17,7 +17,7 @@
           			<td><%= image_tag users.get_profile_image(100,100) %></td>
           			<td><%= users.user_name%>
           			      <% if users.admin == true %>
-          			        <%= "[管理者]" %>
+          			        <h4><%= "[管理者]" %></h4>
           			      <% end %>
           			 </td>
           			<% if users.is_deleted == true %>

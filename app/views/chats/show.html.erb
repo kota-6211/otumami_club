@@ -1,9 +1,16 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div>
+ <div class="section-border1"></div>
+
+  <div class="gpt-content">
+     
+    <h3>保存した おつまみメーカー'sおつまみ</h3>
+     
+    <div class="gpt-recipes">
       <% @answer.each do |answer| %>
-        <%= simple_format(answer.text) %>
+        <div  class="gpt-recipe">
+          <%= simple_format(answer.text) %>
+        </div>
       <% end %>
-    </div>
+    </div>   
   </div>
 </div>
