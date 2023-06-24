@@ -3,9 +3,9 @@ class Users::RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
-    @recipes = Recipe.all
     @tags = Tag.order(created_at: :desc).limit(25)
     @genre = AlcoholGenre.all
+    @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new

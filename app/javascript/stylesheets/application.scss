@@ -8,6 +8,22 @@
 *:hover {
   color: black;
 }
+// ページネーション
+.page-nation {
+  display: flex;
+  justify-content: center;
+}
+.current {
+  background: #b6751f8c;
+}
+.pagination span {
+  border: 1px black solid;
+  padding: 0 0.5vw;
+  margin: 0 2px;
+}
+.pagination span a {
+  color: black;
+}
 .layouts {
   display: flex;
 }
