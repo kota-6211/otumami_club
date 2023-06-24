@@ -20,7 +20,7 @@ class ChatsController < ApplicationController
   end
   
   def show
-    @answer = Chat.all
+    @answer = User.find(params[:id]).chats
     @genre = AlcoholGenre.all
   end
   

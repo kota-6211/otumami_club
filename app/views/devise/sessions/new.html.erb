@@ -2,8 +2,9 @@
 <div class="user-sign-in">
   <h2>ログイン</h2>
     <%= form_with model: @user, url: user_session_path do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-     <table class="table table-bordered new-table">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      <table class="table table-bordered new-table">
       	<tbody>
       		<tr class="table-row">
       			<th colspan="2" class="table-head"><%= f.label :"メールアドレス", class: "sign-up-text" %><br> <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-form" %></th>
