@@ -19,3 +19,5 @@ ja:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         not_saved: '必要項目が未入力です'
+        
+        
