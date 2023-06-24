@@ -44,7 +44,7 @@ class AlcoholGenresController < ApplicationController
   end
 
   def destroy
-  
+
   end
 
   private

@@ -164,6 +164,19 @@
   margin-bottom: 10%;
   margin: 5vw;
 }
+.headline-text {
+  width: 50vw;
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  padding: 1vw;
+}
+.headline-text p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+}
 .main-text {
   text-align: center;text-align: center;
   width: 60%;
@@ -219,6 +232,9 @@
   width: 65%;
   margin: 0 auto;
 }
+.beer-bg {
+  background: white;
+}
 .box {
   width: 50%;
   height:25vw;
@@ -247,7 +263,7 @@
 }
 
 .beer {
-  font-size: 6vw;
+  font-size: 5vw;
 }
 
 .wine {
@@ -669,6 +685,14 @@
   .main-image {
     margin-bottom: 10%;
   }
+  .headline-text {
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    padding: 1vw;
+  }
   .main-text {
     text-align: center;text-align: center;
     width: 60%;
@@ -957,9 +981,9 @@
     font-weight: bold;
   }
   .phone-links-page {
-    width: 50%;
+    width: 100%;
     height: 100%;
-    margin: 30vh auto;
+    margin-top: 20vw;
   }
   .phone-links {
     height: 100%;
@@ -967,10 +991,10 @@
     text-align: center;
   }
   .phone-link {
-    margin-bottom: 8vw;
+    margin-bottom: 12vh;
   }
     .phone-link a {
-    font-size: 5vw;
+    font-size: 6vw;
     font-weight: 700;
   }
   // 区切り線
@@ -1123,6 +1147,19 @@
   }
   .main-image {
     margin: 0;
+  }
+  .headline-text {
+    width: 90vw;
+    margin: 5vw auto;
+    text-align: center;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    padding: 1vw;
+  }
+    .headline-text p {
+    margin-top: 0;
+    margin-bottom: 1.5vw;
+    font-size: 2vw;
   }
   .main-text {
     text-align: center;text-align: center;
