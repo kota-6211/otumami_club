@@ -8,6 +8,10 @@
 *:hover {
   color: black;
 }
+.turbolinks-progress-bar {
+  height: 100px;
+  background-color: pink;
+}
 // ページネーション
 .page-nation {
   display: flex;
@@ -657,7 +661,6 @@
     font-size: 0.8vw;
   }
   .search-submit input {
-    background-color: #e7cca3;
     padding: 0;
     font-size: 2vw;
   }
@@ -1109,12 +1112,14 @@
   }
   .search-form {
     width: 40vw;
-    height: 5.5vw;
+    height: 7.5vw;
   }
   .search-submit {
     padding: 0;
-    font-size: 3vw;
     margin-left: 0.5vw;
+  }
+  .search-submit input {
+    font-size: 4vw;
   }
   .header-link {
     display:none;

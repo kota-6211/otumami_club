@@ -16,10 +16,14 @@
     <% end %>
   </div>
   <div class="answer">
+    <% if @answer == '' %>
+     test!!!
+    <% end %>
     <%= simple_format(@answer) %>
     <% if user_signed_in? %>
       <% if @answer.present? %>
         <%= link_to "おつまみを保存", chats_path(text: @answer), method: :post, class: "btn btn-outline-secondary" %>
+
       <% end %>
     <% end %>
   </div>

@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   def index
     if params[:question].present?
+       @answer = ''
         client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
         response = client.chat(
           parameters: {
@@ -11,17 +12,17 @@ class ChatsController < ApplicationController
     end
     @genre = AlcoholGenre.all
   end
-  
+
   def create
     @answer = Chat.new(text: params[:text])
     @answer.user_id = current_user.id
     @answer.save
     redirect_to user_path(current_user)
   end
-  
+
   def show
     @answer = User.find(params[:id]).chats
     @genre = AlcoholGenre.all
   end
-  
+
 end
