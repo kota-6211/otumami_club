@@ -17,7 +17,9 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, numericality: {only_integer: true}
+  validates :introduction, length: { maximum: 30 }
+  validates :favorite_alcohol, length: { maximum: 10 }
 
 
   def get_profile_image(width,height)

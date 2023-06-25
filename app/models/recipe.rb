@@ -12,18 +12,18 @@ class Recipe < ApplicationRecord
   has_many :steps, dependent: :destroy
   accepts_nested_attributes_for :ingredients, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
-  
-  validates :title, presence: true
-  validates :body, presence: true
+
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :body, presence: true, length: { maximum: 150 }
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+
   def saved_by?(user)
     saved_recipes.exists?(user_id: user.id)
   end
-  
+
   def get_recipe_image(width,height)
     unless recipe_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image_otumami.jpg')
@@ -70,7 +70,7 @@ class Recipe < ApplicationRecord
     end
 
   end
-  
+
   def self.ransackable_attributes(auth_object = nil)
     ["alcohol_genre_id", "body", "cook_time", "created_at", "id", "point", "title", "updated_at", "user_id"]
   end
