@@ -8,10 +8,6 @@
 *:hover {
   color: black;
 }
-.turbolinks-progress-bar {
-  height: 100px;
-  background-color: pink;
-}
 // ページネーション
 .page-nation {
   display: flex;
@@ -534,6 +530,12 @@
   padding: 1vw;
   width: 35vw;
   border: 3px black solid;
+}
+.loading {
+  font-size: 4vw;
+}
+.loading-text p {
+  font-size: 1.5vw;
 }
 /*レスポンシブ*/
 @media screen and (max-width:1024px) {
@@ -1608,8 +1610,14 @@
     border: 3px black solid;
     margin-bottom: 3vw;
   }
-    .gpt-recipe p {
+  .gpt-recipe p {
     font-size: 3vw;
+  }
+  .loading {
+    font-size: 9vw;
+  }
+  .loading-text p {
+    font-size: 6vw;
   }
   /*レシピ投稿、編集*/
   .new-recipe-page, .edit-recipe-page {
