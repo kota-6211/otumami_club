@@ -531,6 +531,12 @@
   width: 35vw;
   border: 3px black solid;
 }
+.loading {
+  font-size: 4vw;
+}
+.loading-text p {
+  font-size: 1.5vw;
+}
 /*レスポンシブ*/
 @media screen and (max-width:1024px) {
   .layouts {
@@ -657,7 +663,6 @@
     font-size: 0.8vw;
   }
   .search-submit input {
-    background-color: #e7cca3;
     padding: 0;
     font-size: 2vw;
   }
@@ -1109,12 +1114,14 @@
   }
   .search-form {
     width: 40vw;
-    height: 5.5vw;
+    height: 7.5vw;
   }
   .search-submit {
     padding: 0;
-    font-size: 3vw;
     margin-left: 0.5vw;
+  }
+  .search-submit input {
+    font-size: 4vw;
   }
   .header-link {
     display:none;
@@ -1603,8 +1610,14 @@
     border: 3px black solid;
     margin-bottom: 3vw;
   }
-    .gpt-recipe p {
+  .gpt-recipe p {
     font-size: 3vw;
+  }
+  .loading {
+    font-size: 9vw;
+  }
+  .loading-text p {
+    font-size: 6vw;
   }
   /*レシピ投稿、編集*/
   .new-recipe-page, .edit-recipe-page {

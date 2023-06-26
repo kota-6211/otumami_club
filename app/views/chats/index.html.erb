@@ -8,20 +8,36 @@
   </div>
   <div class="robo-text">
     <p>今ある食材やお菓子を入れると何ができるか教えてくれるよ！</p>
-    <%= form_with(url: chats_path, method: :get) do |f| %>
+    <%= form_with(url: chats_path, method: :get, id: "chats_submit") do |f| %>
       <%= f.text_field :question, size: 50, placeholder: "じゃがりこ、たまご、とうふ、などなど", class: "gpt-form" %>
       <div class="new-submit robo-submit">
-        <%= f.submit "聞いてみる", class: "btn btn-outline-secondary"%>
+        <%= f.submit "聞いてみる", class: "btn btn-outline-secondary" %>
       </div>
     <% end %>
   </div>
+
+  <div id="loading" class="loading-text">
+    <p>考え中<span class="loading" style="font-size: 4vw;"></span></p>
+  </div>
+
   <div class="answer">
     <%= simple_format(@answer) %>
-    <% if user_signed_in? %>
-      <% if @answer.present? %>
+    <% if @answer.present? %>
+    <%= link_to "もう一度聞いてみる", chats_path, class: "btn btn-outline-secondary" %>
+      <% if user_signed_in? %>
         <%= link_to "おつまみを保存", chats_path(text: @answer), method: :post, class: "btn btn-outline-secondary" %>
       <% end %>
     <% end %>
   </div>
-
 </div>
+
+<link rel="stylesheet" href="https://maxbeier.github.io/text-spinners/spinners.css">
+
+<script>
+$(function() {
+  // $('#loading').hide();
+  $("#chats_submit").on("submit", function(e) {
+    $('#loading').show();
+  });
+});
+</script>
