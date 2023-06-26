@@ -58,8 +58,8 @@
       <% @beer.each do |beer_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(beer_recipe) do %>
-            <div class="box-image"><%= image_tag beer_recipe.get_recipe_image(200,200), width: '60%', height: '60%' %></div>
-            <div class="box-text "><%= beer_recipe.title %></div>
+            <div class="box-image"><%= image_tag beer_recipe.get_recipe_image(200,200), width: '70%', height: '70%' %></div>
+            <div class="box-text"><%= beer_recipe.title %></div>
           <% end %>
         </div>
       <% end %>
@@ -79,7 +79,7 @@
       <% @wine.each do |wine_recipe| %>
         <div class="box box2">
           <%= link_to recipe_path(wine_recipe) do %>
-            <div class="box-image"><%= image_tag wine_recipe.recipe_image, width: '60%', height: '60%' %></div>
+            <div class="box-image"><%= image_tag wine_recipe.recipe_image, width: '70%', height: '70%' %></div>
             <div class="box-text"><%= wine_recipe.title %></div>
           <% end %>
         </div>
