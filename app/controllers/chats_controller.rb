@@ -19,6 +19,12 @@ class ChatsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    @answer = Chat.find(params[:id])
+    @answer.destroy
+    redirect_to chats_path
+  end
+
   def show
     @answer = User.find(params[:id]).chats
     @genre = AlcoholGenre.all

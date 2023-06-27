@@ -1,26 +1,10 @@
-class Users::RecipesController < ApplicationController
+class Admin::RecipesController < AdminController
   before_action :find_recipe, only: %w[ edit update destroy]
-  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     @tags = Tag.order(created_at: :desc).limit(25)
     @genre = AlcoholGenre.all
     @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
-  end
-
-  def new
-    @recipe = Recipe.new
-    @genre = AlcoholGenre.all
-  end
-
-  def create
-    @recipe = Recipe.new(recipe_params)
-    if @recipe.save
-      @recipe.save_tags(params[:recipe][:tag])
-      redirect_to recipe_path(@recipe)
-    else
-      render :new
-    end
   end
 
   def show
@@ -31,16 +15,13 @@ class Users::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    if @recipe.user_id != current_user.id
-      redirect_to root_path
-    end
     @genre = AlcoholGenre.all
   end
 
   def update
     if @recipe.update(recipe_params)
       @recipe.save_tags(params[:recipe][:tag])
-      redirect_to recipe_path(@recipe)
+      redirect_to admin_recipe_path(@recipe)
     else
       render :edit
     end
@@ -48,7 +29,7 @@ class Users::RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to mypage_users_path
+    redirect_to admin_path
   end
 
   def search

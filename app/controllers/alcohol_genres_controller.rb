@@ -23,7 +23,7 @@ class AlcoholGenresController < ApplicationController
 
   def show
     @alcohol_genre = AlcoholGenre.find(params[:id])
-    @recipes = @alcohol_genre.recipes
+    @genre_recipes = @alcohol_genre.recipes
     @genre = AlcoholGenre.all
     @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
