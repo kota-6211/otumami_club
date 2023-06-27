@@ -54,6 +54,7 @@ class Users::RecipesController < ApplicationController
   def search
     @results = @q.result
     @genre = AlcoholGenre.all
+    @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private
