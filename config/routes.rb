@@ -5,19 +5,36 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  # 管理者用の管理ページのリンク一覧ページ
-  get 'users/admin_top' => 'users#admin_top'
-  resources :users, only: [:index, :show, :edit, :update] do
+  get "admin" => "admin#top"
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+      member do
+        get :mypage
+        get :unsubscribe
+        patch :withdraw
+        get :saved_recipes
+      end
+    end
+    resources :recipes, only: [:index, :edit, :update, :show, :destroy] do
+         collection do
+            get 'search'
+          end
+    end
+  end
+
+  resources :users, only: [:show, :edit, :update] do
     # mypageは登録情報 showはサイト内のプロフィール
-    get :mypage
-    get :unsubscribe
-    patch :withdraw
-    get :saved_recipes
+    collection do
+      get :mypage
+      get :unsubscribe
+      patch :withdraw
+      get :saved_recipes
+    end
   end
 
   resources :alcohol_genres, only: [:index, :create, :show, :edit, :uodate, :destroy]
 
-  resources :chats, only: [:index, :create, :show]
+  resources :chats, only: [:index, :create, :show, :destroy]
 
   scope module: :users do
     resources :recipes do

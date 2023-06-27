@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_q
 
     def after_sign_in_path_for(resource)
-        user_mypage_path(current_user)
+       mypage_users_path
     end
 
   def genre

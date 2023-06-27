@@ -1,50 +1,46 @@
-class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+class Admin::UsersController < AdminController
+  def index
+    @users = User.all
+    @genre = AlcoholGenre.all
+  end
 
   def saved_recipes
-    @user = current_user
+    @user = User.find(params[:id])
     saved_recipes = SavedRecipe.where(user_id: current_user.id).pluck(:recipe_id)
     @saved_recipes = Recipe.find(saved_recipes)
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     @recipes = Recipe.all
     @genre = AlcoholGenre.all
   end
 
   def edit
-    @user = User.find(params[:id])
-    redirect_to root_path unless @user == current_user
+    @user = User.find_by(id: params[:id])
     @genre = AlcoholGenre.all
   end
 
   def update
     @user = User.find(params[:id])
-    redirect_to root_path unless @user == current_user
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "Successfully updated user."
     else
       render :edit
     end
   end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path
+  end
 
   def mypage
-    @user = current_user
+    @user = User.find(params[:id])
     @genre = AlcoholGenre.all
   end
 
-  def unsubscribe
-    @user = current_user
-    @genre = AlcoholGenre.all
-  end
-
-  def withdraw
-    @user = current_user
-    @user.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
-  end
 
   def search
     @results = @q.result

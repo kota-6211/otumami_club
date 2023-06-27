@@ -23,22 +23,18 @@
       </div>
 
       <div class="detail-links">
-        <% if user_signed_in? %>
-          <% if @user.id == current_user.id %>
-            <div class="detail-link">
-              <%= link_to "・登録情報詳細・", mypage_users_path, class: "detail-link" %>
-            </div>
-            <div class="detail-link">
-              <%= link_to "・新規おつまみ投稿・", new_recipe_path, class: "detail-link" %>
-            </div>
-            <div class="detail-link">
-              <%= link_to "・保存したおつまみ・", saved_recipes_users_path, class: "detail-link" %>
-            </div>
-            <div class="detail-link">
-              <%= link_to "・おつまみメーカー'sおつまみ・", chat_path(@user), class: "detail-link" %>
-            </div>
-          <% end %>
-        <% end %>
+        <div class="detail-link">
+          <%= link_to "・登録情報詳細・", mypage_admin_user_path(@user), class: "detail-link" %>
+        </div>
+        <div class="detail-link">
+          <%= link_to "・新規おつまみ投稿・", new_recipe_path, class: "detail-link" %>
+        </div>
+        <div class="detail-link">
+          <%= link_to "・保存したおつまみ・", saved_recipes_admin_user_path(@user), class: "detail-link" %>
+        </div>
+        <div class="detail-link">
+          <%= link_to "・おつまみメーカー'sおつまみ・", chat_path(@user), class: "detail-link" %>
+        </div>
       </div>
     </div>
 

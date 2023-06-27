@@ -1,0 +1,36 @@
+<div>
+  <div class="section-border1"></div>
+  
+  <div class="user-sign-up">
+    <h2>登録情報</h2>
+        <table class="table table-bordered new-table">
+        	<tbody>
+        	  <tr class="table-row">
+        			<th colspan="2" class="table-head"></th><%= image_tag @user.get_profile_image(100,100), width: '20%', height: '20%' %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= "ユーザーネーム" %><br><%= @user.user_name %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= "好きなお酒" %><br><%= @user.favorite_alcohol %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= "自己紹介" %><br><%= @user.introduction %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"> <%= "姓" %><br><%= @user.last_name %></th>
+        			<th colspan="1" class="table-head"><%= "名" %> <br> <%= @user.first_name %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"><%= "せい" %><br> <%= @user.last_name_kana %></th>
+        			<th colspan="1" class="table-head"><%= "めい" %><br> <%= @user.first_name_kana %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"><%= "電話番号" %><br> <%= @user.phone_number %></th>
+        			<th colspan="1" class="table-head"><%= "メールアドレス" %><br> <%= @user.email %></th>
+        		</tr>
+        	</tbody>
+        </table>
+      <%= link_to "ユーザー削除", admin_user_path(@user), method: :delete, class: 'text-danger mr-3', data: {confirm: '削除しますか？'} %>
+  </div>
+</div>

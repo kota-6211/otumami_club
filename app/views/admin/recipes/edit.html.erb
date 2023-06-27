@@ -5,7 +5,7 @@
   <div class="edit-recipe-page">
     <h2>おつまみ　編集</h2>
   
-    <%= form_with model: @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+    <%= form_with model: @recipe, url: admin_recipe_path(@recipe), method: :patch do |f| %>
       <% if @recipe.errors.any? %>
         <ul>
           <% @recipe.errors.full_messages.each do |message| %>
