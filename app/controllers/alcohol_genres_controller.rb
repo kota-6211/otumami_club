@@ -25,6 +25,7 @@ class AlcoholGenresController < ApplicationController
     @alcohol_genre = AlcoholGenre.find(params[:id])
     @recipes = @alcohol_genre.recipes
     @genre = AlcoholGenre.all
+    @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def edit
