@@ -31,8 +31,15 @@ ChatGPTを導入することで家にある食材から作れるおつまみをA
 ・自身が考えたおつまみレシピを他人と共有したいとき
 
 ## 設計書
-
-
+・設計書
+  https://docs.google.com/spreadsheets/d/1_YQX_3LH7n-NFW4CQZ0HX0pLWQpCONk7Xuo_JJXCTUo/edit?usp=sharing
+・ER図
+  https://drive.google.com/file/d/16H16ftfqklu77sqkMtuqumiawAGgA8Q_/view?usp=sharing
+・UIフローチャート
+  ・管理者
+    https://drive.google.com/file/d/1yYtak0jAJDwhroaccHlP3fasirykplc4/view?usp=sharing
+  ・ユーザー
+    https://drive.google.com/file/d/1meigtZBQEo6-87LK-jAKWpvbm-O2wr9c/view?usp=sharing
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
@@ -41,4 +48,6 @@ ChatGPTを導入することで家にある食材から作れるおつまみをA
 - IDE：Cloud9
 
 ## 使用素材
-- Open-AIのChtatGPT
+- いらすとや
+- フリー素材
+- その他自己撮影
