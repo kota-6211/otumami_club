@@ -65,21 +65,40 @@
         </li>
       </ul>
     <% else %>
-      <li>
-        <%= link_to "・合うお酒を選んで探す", recipes_path, class: "link  ml-3 genre-botton" %>
-      </li>
-      <li>
-        <%= link_to "・おつまみメーカーに聞く", chats_path, class: "link ml-3" %>
-      </li>
-      <li>
-        <%= link_to "・おつまみ一覧から探す", recipes_path, class: "link  ml-3" %>
-      </li>
-      <li>
-        <%= link_to "・新規登録", new_user_registration_path, class: "link  ml-3" %>
-      </li>
-      <li>
-        <%= link_to "・ログイン", new_user_session_path, class: "link  ml-3" %>
-      </li>
+      <div class="pc-page">
+        <li>
+          <%= link_to "・合うお酒を選んで探す", recipes_path, class: "link  ml-3 genre-botton" %>
+        </li>
+        <li>
+          <%= link_to "・おつまみメーカーに聞く", chats_path, class: "link ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・おつまみ一覧から探す", recipes_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・新規登録", new_user_registration_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・ログイン", new_user_session_path, class: "link  ml-3" %>
+        </li>
+      </div>
+      <ul class="phone-page">
+        <li>
+          <%= link_to "・合うお酒で探す", recipes_path, class: "link  ml-3 genre-botton" %>
+        </li>
+        <li>
+          <%= link_to "・おつまみメーカー", chats_path, class: "link ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・おつまみ一覧", recipes_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・新規登録", new_user_registration_path, class: "link  ml-3" %>
+        </li>
+        <li>
+          <%= link_to "・ログイン", new_user_session_path, class: "link  ml-3" %>
+        </li>
+      </ul>
     <% end %>
   </div>
   <div class="menu menu-botton">
