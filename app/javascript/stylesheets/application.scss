@@ -124,8 +124,9 @@
   display:none;
 }
 .header-border {
-  padding: 2rem;
+  padding: 15% 2rem;
   border: 3px black solid;
+  height: 100vh;
 }
 .header-background {
   // background-color: #e7cca3;
@@ -641,8 +642,7 @@
     display: none;
   }
   .search {
-    display: flex;
-    align-items: center;
+    margin-top: 1.5vw;
   }
   .recipe-search {
     text-align: left;
@@ -671,8 +671,6 @@
   }
   .header-link {
     border:none;
-    display: flex;
-    align-items: center;
     margin-top: 0;
   }
   .header-link li {
@@ -1621,6 +1619,9 @@
   }
   .loading-text p {
     font-size: 6vw;
+  }
+  .loading-animation span {
+    font-size: 8vw;
   }
   /*レシピ投稿、編集*/
   .new-recipe-page, .edit-recipe-page {
