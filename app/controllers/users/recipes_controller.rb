@@ -52,7 +52,7 @@ class Users::RecipesController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result(distinct: true)
     @genre = AlcoholGenre.all
     @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
