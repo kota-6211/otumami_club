@@ -1,45 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div>
-        <%= image_tag @user.get_profile_image(100,100) %>
-        <h3><%= @user.user_name %>さん登録情報</h3>
+<div>
+  <div class="section-border1"></div>
 
-        <ul>
-          <li>
-            ユーザー名: <%= @user.user_name %>
-          </li>
-          <li>
-            お気に入りのお酒: <%= @user.favorite_alcohol %>
-          </li>
-          <li>
-            自己紹介: <%= @user.introduction %>
-          </li>
-          <li>
-            姓: <%= @user.last_name %>
-          </li>
-          <li>
-            名: <%= @user.first_name %>
-          </li>
-          <li>
-            姓（かな）: <%= @user.last_name_kana %>
-          </li>
-          <li>
-            名（かな）: <%= @user.first_name_kana %>
-          </li>
-          <li>
-            メールアドレス: <%= @user.email %>
-          </li>
-          <li>
-            電話番号: <%= @user.phone_number %>
-          </li>
-        </ul>
+  <div class="user-sign-up">
+    <h2>登録情報</h2>
+        <table class="table table-bordered new-table">
+        	<tbody>
+        	  <tr class="table-row">
+        			<th colspan="2" class="table-head"></th><%= image_tag @user.get_profile_image(100,100), width: '20%', height: '20%' %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= "ユーザーネーム" %><br><%= @user.user_name %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= "好きなお酒" %><br><%= @user.favorite_alcohol %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="2" class="table-head"><%= "自己紹介" %><br><%= @user.introduction %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"> <%= "姓" %><br><%= @user.last_name %></th>
+        			<th colspan="1" class="table-head"><%= "名" %> <br> <%= @user.first_name %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"><%= "せい" %><br> <%= @user.last_name_kana %></th>
+        			<th colspan="1" class="table-head"><%= "めい" %><br> <%= @user.first_name_kana %></th>
+        		</tr>
+        		<tr class="table-row">
+        			<th colspan="1" class="table-head"><%= "電話番号" %><br> <%= @user.phone_number %></th>
+        			<th colspan="1" class="table-head"><%= "メールアドレス" %><br> <%= @user.email %></th>
+        		</tr>
+        	</tbody>
+        </table>
+      <div class="new-submit">
+        <%= link_to "登録情報編集", edit_user_path(@user), class: "btn btn-outline-secondary new-submit mb-3" %>
       </div>
-        <%= link_to "登録情報編集", edit_user_path(current_user) %>
-
-        <% if current_user.admin == false %>
-          <%= link_to "アカウント削除", user_unsubscribe_path(current_user) %>
+      <div class="new-submit">
+        <% if @user.admin == false %>
+          <%= link_to "アカウント削除", unsubscribe_users_path, class: "btn btn-outline-secondary new-submit mb-3" %>
         <% end %>
-    </div>
+      </div>
   </div>
 </div>

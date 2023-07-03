@@ -1,12 +1,15 @@
 class AlcoholGenresController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+
   def index
     if current_user.admin != true
       redirect_to root_path
     end
     @alcohol_genres = AlcoholGenre.all
     @alcohol_genre = AlcoholGenre.new
+    @genre = AlcoholGenre.all
   end
-  
+
   def create
     @alcohol_genre = AlcoholGenre.new(alcohol_genre_params)
     if @alcohol_genre.save
@@ -19,22 +22,34 @@ class AlcoholGenresController < ApplicationController
   end
 
   def show
+    @alcohol_genre = AlcoholGenre.find(params[:id])
+    @genre_recipes = @alcohol_genre.recipes
+    @genre = AlcoholGenre.all
+    @recipes = Recipe.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def edit
     if current_user.admin != true
       redirect_to root_path
     end
+    @alcohol_genre = AlcoholGenre.find(params[:id])
   end
-  
+
   def update
+    @alcohol_genre = AlcoholGenre.find(params[:id])
+    if @alcohol_genre.update(alcohol_genre_params)
+      redirect_to alcohol_genres_path
+    else
+      render :edit
+    end
   end
-  
+
   def destroy
+
   end
-  
+
   private
-  
+
   def alcohol_genre_params
     params.require(:alcohol_genre).permit(:name)
   end

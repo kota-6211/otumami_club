@@ -6,12 +6,35 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <%= stylesheet_link_tag 'custom' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="layouts">
+      <div class="col mx-0 px-0 header-background">
+        <header class="header"><%= render 'layouts/header' %></header>
+      </div>
+      <div class="phone_menu">
+        <%= render 'layouts/phone_menu' %>
+      </div>
+      <div class="main main-content">
+        <% if user_signed_in? %>
+          <% if current_user.admin %>
+            <%= link_to "管理者ページ", admin_path, class: "link  ml-3" %>
+          <% end %>
+        <% end %>
+        <div class="genre-links">
+          <%= render 'layouts/genre', genre: @genre %>
+        </div>
+        <%= yield %>
+        <div class="section-border2"></div>
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
   </body>
 </html>

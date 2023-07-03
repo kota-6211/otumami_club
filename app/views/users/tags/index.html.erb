@@ -1,0 +1,9 @@
+<div class="container">
+  <ul>
+    <% @tags.each do |tag| %>
+      <% unless tag.recipes.count == 0 %>
+        <li><%= link_to "#{tag.name} (#{tag.recipes.count})", tag_path(tag) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <div class="section-border1"></div>
+
+  <div class="main-image d-flex justify-content-center">
+    <%= image_tag 'search.jpg', width: '100%', height: '100%' %>
+  </div>
+
+  <div class="section-border"></div>
+
+  <div class="index-top">
+    <h2><%= "検索結果" %></h2>
+    <div class="index-content">
+      <%= render "recipes", recipes: @results %>
+    </div>
+    <div class="page-nation">
+      <%= paginate @recipes %>
+    </div>
+  </div>
+</div>

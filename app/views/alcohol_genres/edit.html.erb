@@ -1,2 +1,11 @@
-<h1>AlcoholGenres#edit</h1>
-<p>Find me in app/views/alcohol_genres/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @alcohol_genre do |f| %>
+        <%= f.label :"お酒ジャンル編集" %>
+        <%= f.text_field :name %>
+        <%= f.submit "変更" %>
+      <% end %>
+    </div>
+  </div>
+</div>

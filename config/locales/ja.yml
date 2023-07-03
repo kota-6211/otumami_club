@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認用）'
+        user_name: 'ユーザー名'
+        name: '名前'
+        last_name_kana: "せい"
+        first_name_kana: "めい"
+        last_name: "姓"
+        first_name: "名"
+        phone_number: "電話番号"
+      recipe:
+        title: "おつまみ名"
+        body: "おつまみの説明"
+        recipe_image: "おつまみの画像"
+  errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        not_saved: '必要項目が未入力です'
+

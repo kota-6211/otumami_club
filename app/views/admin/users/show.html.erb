@@ -1,0 +1,61 @@
+<div>
+  <div class="section-border1"></div>
+
+  <div class="user-show">
+    <div class="user-detail">
+      <div class="user-profile">
+        <h2>P R O F I L E</h2>
+        <h4>プロフィール</h4>
+        <div class="user-image mt-3 mb-3">
+          <%= image_tag @user.get_profile_image(200,200), width: '100%', height: '100%' %>
+        </div>
+        <div class="user-name">
+          <%= @user.user_name %>
+        </div>
+        <div class="user-introduction">
+          <%= @user.introduction %>
+        </div>
+        <div class="user-alcohol">
+          <% if @user.favorite_alcohol.present? %>
+            <%= "#" + @user.favorite_alcohol + "好き" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="detail-links">
+        <div class="detail-link">
+          <%= link_to "・登録情報詳細・", mypage_admin_user_path(@user), class: "detail-link" %>
+        </div>
+        <div class="detail-link">
+          <%= link_to "・新規おつまみ投稿・", new_recipe_path, class: "detail-link" %>
+        </div>
+        <div class="detail-link">
+          <%= link_to "・保存したおつまみ・", saved_recipes_admin_user_path(@user), class: "detail-link" %>
+        </div>
+        <div class="detail-link">
+          <%= link_to "・おつまみメーカー'sおつまみ・", chat_path(@user), class: "detail-link" %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="user-recipe">
+     <h3>My おつまみ</h3>
+       <% @user.recipes.each do |recipes| %>
+       <div class="user-recipes user-page-recipes">
+         <%= link_to recipe_path(recipes) do%>
+           <div class="user-recipe-blok d-flex">
+            <%= image_tag recipes.get_recipe_image(250,250), width: '50%', height: '50%' %>
+              <div class="phone-recipe">
+                <%= content_tag :div, recipes.title, class: "user-recipe-title pc-user-recipe-title" %>
+                <%= content_tag :div, recipes.title, class: "user-recipe-title phone-user-recipe-title" %>
+                <%= content_tag :div, "調理時間#{recipes.cook_time}", class: "user-recipe-image" %>
+              </div>
+           </div>
+            <%= content_tag :div, recipes.body, class: "user-recipe-body" %>
+         <% end %>
+        </div>
+     <% end %>
+    </div>
+  </div>
+</div>

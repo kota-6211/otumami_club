@@ -1,0 +1,17 @@
+<div>
+ <div class="section-border1"></div>
+
+  <div class="gpt-content">
+     
+    <h3>保存した おつまみメーカー'sおつまみ</h3>
+     
+    <div class="gpt-recipes">
+      <% @answer.each do |answer| %>
+        <div  class="gpt-recipe">
+          <%= simple_format(answer.text) %>
+          <%= link_to '削除', chat_path(answer), method: :delete, class: 'text-danger mr-3', data: {confirm: '削除しますか？'} %>
+        </div>
+      <% end %>
+    </div>   
+  </div>
+</div>

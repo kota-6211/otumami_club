@@ -1,0 +1,9 @@
+<div class="genre-link">
+ <% if AlcoholGenre.any? %>
+  <% AlcoholGenre.all.each do |genre| %>
+   <%= link_to alcohol_genre_path(genre) do %>
+   <%= genre.name %>
+  <% end %>
+ <% end %>
+<% end %>
+</div>

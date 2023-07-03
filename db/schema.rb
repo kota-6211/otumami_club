@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_08_143016) do
+ActiveRecord::Schema.define(version: 2023_07_03_035029) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,9 +46,45 @@ ActiveRecord::Schema.define(version: 2023_06_08_143016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.text "text", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_favorites_on_recipe_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
-    t.string "quantity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "quantiry", null: false
+    t.integer "recipe_id", null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
+
+  create_table "recipe_tags", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -58,12 +94,29 @@ ActiveRecord::Schema.define(version: 2023_06_08_143016) do
     t.integer "alcohol_genre_id", null: false
     t.string "title", null: false
     t.string "body", null: false
-    t.string "point", null: false
-    t.string "cook_time", null: false
+    t.string "point"
+    t.string "cook_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["alcohol_genre_id"], name: "index_recipes_on_alcohol_genre_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "saved_recipes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_saved_recipes_on_recipe_id"
+    t.index ["user_id"], name: "index_saved_recipes_on_user_id"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.string "step_number", null: false
+    t.string "discription", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
@@ -94,7 +147,22 @@ ActiveRecord::Schema.define(version: 2023_06_08_143016) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vision_tags", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "recipes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "recipes"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "alcohol_genres"
   add_foreign_key "recipes", "users"
+  add_foreign_key "saved_recipes", "recipes"
+  add_foreign_key "saved_recipes", "users"
 end

@@ -1,0 +1,92 @@
+<div>
+  
+  <div class="section-border1"></div>
+  
+  <div class="edit-recipe-page">
+    <h2>おつまみ　編集</h2>
+  
+    <%= form_with model: @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+      <% if @recipe.errors.any? %>
+        <ul>
+          <% @recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <%end%>
+      <div class="row">
+        <div class="col">
+          <%= f.label :recipe_image, "おつまみ写真" %><br>
+          <%= f.file_field :recipe_image, accept: "image/*" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= f.label :title, 'おつまみ名(＊必須)' %>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :alcohol_genre_id, 'お酒の種類(＊必須)' %>
+            <%= f.collection_select(:alcohol_genre_id, AlcoholGenre.all, :id, :name, {}, class: 'form-control') %>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :body, 'おつまみ説明(＊必須)' %>
+        <%= f.text_area :body, rows: 3, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :point, 'ポイント' %>
+            <%= f.text_field :point, class: 'form-control' %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :cook_time, '調理時間' %>
+            <%= f.text_field :cook_time, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.fields_for :ingredients do |ingredient| %>
+              <%= render 'ingredient_fields', :f => ingredient %>
+            <% end %>
+            <div class='links'>
+              <%= link_to_add_association '材料を追加', f, :ingredients %>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <%= f.fields_for :steps do |step| %>
+              <%= render 'step_fields', :f => step %>
+            <% end %>
+            <div class='links'>
+              <%= link_to_add_association '手順を追加', f, :steps %>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :tag, 'タグ' %>
+        <%= f.text_field :tag, value: @recipe.tags.pluck(:name), class: 'form-control' %>
+        <small class="text-black-50">スペースで区切ることで複数指定できます。</small>
+      </div>
+  
+      <div class="form-group mt-5">
+        <div class="row">
+          <div class="col-md-4 mx-auto new-submit">
+            <%= f.submit '編集', class: 'btn btn-outline-secondary new-submit btn-block' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

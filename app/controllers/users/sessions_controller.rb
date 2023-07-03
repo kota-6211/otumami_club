@@ -4,9 +4,15 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :user_state, only: [:create]
   
+  def new_guest
+    user = User.guest
+    sign_in user   
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+  
   protected
   def user_state
-    @user = User.find_by(user_name: params[:user][:user_name])
+    @user = User.find_by(email: params[:user][:email])
     if @user 
       if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"

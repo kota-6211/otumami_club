@@ -1,0 +1,20 @@
+ <!--ログインしているか-->
+<% if user_signed_in? %>
+  <!--自分の投稿は表示しない-->
+  <% if recipe.user != current_user %>
+    <% if recipe.saved_by?(current_user) %>
+      <p class="saved-buttons">
+        <%= link_to "保存済み", recipe_saved_recipes_path(recipe), method: :delete, remote: true, class: "btn btn-secondary" %>
+      </p>
+      <% else %>
+      <p class="saved-buttons">
+        <%= link_to "保存する", recipe_saved_recipes_path(recipe), method: :post, remote: true, class: "btn btn-outline-secondary" %>
+      </p>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>
+    <%= "おつまみはログイン後に保存できます" %>
+    <%= link_to "ログイン", new_user_session_path %>
+  </p>
+<% end %>

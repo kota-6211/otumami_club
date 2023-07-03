@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <%= form_with model: [recipe, comment], local: false, class: "comments-form new-submit" do |f| %>
+    <%= f.text_area :comment, rows: '3', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する", class: "btn btn-outline-secondary new-submit mb-3" %>
+  <% end %>
+<% end %>
