@@ -15,7 +15,13 @@ class Users::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    if @recipe.recipe_image.present?
+     vision_tags = Vision.get_image_data(recipe_params[:recipe_image])
+    end
     if @recipe.save
+      vision_tags.each do |tag|
+        @recipe.vision_tags.create(name: tag)
+      end
       @recipe.save_tags(params[:recipe][:tag])
       redirect_to recipe_path(@recipe)
     else
