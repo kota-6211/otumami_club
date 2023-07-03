@@ -15,9 +15,9 @@ ja:
       recipe:
         title: "おつまみ名"
         body: "おつまみの説明"
+        recipe_image: "おつまみの画像"
   errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         not_saved: '必要項目が未入力です'
-        
-        
+

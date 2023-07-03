@@ -47,6 +47,12 @@
       </div>
     </div>
 
+    <div class="vision mb-3">
+      <% @recipe.vision_tags.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
+    </div>
+
      <div>
       <table class="table table-bordered">
       	<tbody>
