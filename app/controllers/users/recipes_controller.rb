@@ -54,7 +54,7 @@ class Users::RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to mypage_users_path
+    redirect_to user_path(@recipe.user)
   end
 
   def search
