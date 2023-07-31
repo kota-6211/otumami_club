@@ -6,6 +6,7 @@ class ChatsController < ApplicationController
           parameters: {
               model: "gpt-3.5-turbo",
               messages: [{ role: "user", content: "次の材料で作れるお酒に合う簡単アレンジおつまみを一品教えて。#{params[:question]}" }],
+              temperature: 1.0,
           })
         @answer = response.dig("choices", 0, "message", "content")
     end
